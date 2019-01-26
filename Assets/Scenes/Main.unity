@@ -271,59 +271,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 216691336, guid: 8ef2b8d73a78ab646907956e6b22b545, type: 3}
+      propertyPath: animCurve.m_Curve.Array.data[1].inSlope
+      value: 2.2363787
+      objectReference: {fileID: 0}
+    - target: {fileID: 216691336, guid: 8ef2b8d73a78ab646907956e6b22b545, type: 3}
+      propertyPath: animCurve.m_Curve.Array.data[1].outSlope
+      value: 2.2363787
+      objectReference: {fileID: 0}
+    - target: {fileID: 216691336, guid: 8ef2b8d73a78ab646907956e6b22b545, type: 3}
+      propertyPath: animCurve.m_Curve.Array.data[1].inWeight
+      value: 0.06684539
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ef2b8d73a78ab646907956e6b22b545, type: 3}
---- !u!1 &216691335 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1879167642695618004, guid: 8ef2b8d73a78ab646907956e6b22b545,
-    type: 3}
-  m_PrefabInstance: {fileID: 216691334}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &216691336
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 216691335}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec5578b8e2b924e41b903d1097548c21, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 136
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.4946002
-      value: 0.5002334
-      inSlope: 2.2135282
-      outSlope: 2.2135282
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.057099674
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0.0796328
-      outSlope: 0.0796328
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.17046675
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!114 &688812988 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1562349386838025263, guid: 2de30986e158ac64aaa6e82405434a6a,
@@ -419,6 +380,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Level Selection
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957378017190075350, guid: 2de30986e158ac64aaa6e82405434a6a,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1276
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957378017190075350, guid: 2de30986e158ac64aaa6e82405434a6a,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 671
       objectReference: {fileID: 0}
     - target: {fileID: 1562349387341654729, guid: 2de30986e158ac64aaa6e82405434a6a,
         type: 3}
@@ -556,16 +527,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 710ddadcdbcfaf34981d218ae032fd73,
         type: 3}
-    - target: {fileID: 5957378017190075350, guid: 2de30986e158ac64aaa6e82405434a6a,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 1276
-      objectReference: {fileID: 0}
-    - target: {fileID: 5957378017190075350, guid: 2de30986e158ac64aaa6e82405434a6a,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 671
-      objectReference: {fileID: 0}
     - target: {fileID: 1359460937198941283, guid: 2de30986e158ac64aaa6e82405434a6a,
         type: 3}
       propertyPath: m_Sprite
