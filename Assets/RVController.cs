@@ -1,49 +1,81 @@
-﻿using System.Collections;
+﻿using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
-public class RVController : MonoBehaviour
-{
+[System.Serializable]
+public class AxleInfo {
+    public WheelCollider leftWheel;
+    public WheelCollider rightWheel;
+    public bool motor;
+    public bool steering;
+}
+     
+public class RVController : MonoBehaviour {
 
-    public float maxSpeed;
-    public float maxAcceleration;
-    public float turnRate;
+    public List<AxleInfo> axleInfos; 
+    public float maxMotorTorque;
+    public float maxSteeringAngle;
 
-    Rigidbody rigidbody;
-    float mass;
-
-    void Awake() {
-        rigidbody = GetComponent<Rigidbody>();
-        mass = rigidbody.mass;
-    }
-
-
-    // Start is called before the first frame update
-    void Start()
+    public float maxWheelSpeed;
+    public bool enableFastStop;
+     
+    // finds the corresponding visual wheel
+    // correctly applies the transform
+    public void ApplyLocalPositionToVisuals(WheelCollider collider)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        float xAxis = Input.GetAxis("Horizontal");
-        float yAxis = Input.GetAxis("Vertical");
-
-        if (xAxis != 0) {
-
+        if (collider.transform.childCount == 0) {
+            return;
         }
-        if (yAxis != 0) {
-            Vector3 forwardForce = transform.forward * Time.deltaTime * maxAcceleration * yAxis * mass;
-            Debug.Log(forwardForce);
-            rigidbody.AddForce(forwardForce);
-
-            if (rigidbody.velocity.magnitude > maxSpeed) {
-                rigidbody.velocity = rigidbody.velocity.normalized * maxSpeed;// new Vector3();
+     
+        Transform visualWheel = collider.transform.GetChild(0);
+     
+        Vector3 position;
+        Quaternion rotation;
+        collider.GetWorldPose(out position, out rotation);
+     
+        visualWheel.transform.position = position;
+        visualWheel.transform.rotation = rotation;
+    }
+     
+    public void FixedUpdate()
+    {
+        float xAxis     = Input.GetAxis("Horizontal");
+        float yAxis     = Input.GetAxis("Vertical");
+        float steering  = maxSteeringAngle  * xAxis;
+        float motorInput= maxMotorTorque    * yAxis;
+        //float motorInput= Mathf.Min(maxMotorTorque    * yAxis, maxWheelSpeed);
+     
+        foreach (AxleInfo axleInfo in axleInfos) {
+            if (axleInfo.steering) {
+                axleInfo.leftWheel.steerAngle = steering;
+                axleInfo.rightWheel.steerAngle = steering;
             }
+            if (axleInfo.motor) {
+                float motorVal = motorInput;
+
+
+                axleInfo.leftWheel.motorTorque = motorInput;
+                axleInfo.rightWheel.motorTorque = motorInput;
+
+            }
+            
+            if (enableFastStop) {
+                if (yAxis == 0) {
+
+                    axleInfo.leftWheel.brakeTorque  = 500000;
+                    axleInfo.rightWheel.brakeTorque = 500000;
+                    // If the player isn't inputting, we slow down quickly
+                    Debug.Log("Stopping");
+                } else {
+                    
+                    axleInfo.leftWheel.brakeTorque = 0;
+                    axleInfo.rightWheel.brakeTorque = 0;
+                }
+            }
+
+            ApplyLocalPositionToVisuals(axleInfo.leftWheel);
+            ApplyLocalPositionToVisuals(axleInfo.rightWheel);
         }
-        
     }
 
 	void OnCollisionEnter(Collision collision) {
