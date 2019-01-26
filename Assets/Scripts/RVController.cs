@@ -9,8 +9,10 @@ public class AxleInfo {
     public bool motor;
     public bool steering;
 }
-     
+
 public class RVController : MonoBehaviour {
+
+    bool controlEnabled = true;
 
     public List<AxleInfo> axleInfos; 
     public float maxMotorTorque;
@@ -39,8 +41,8 @@ public class RVController : MonoBehaviour {
      
     public void FixedUpdate()
     {
-        float xAxis     = Input.GetAxis("Horizontal");
-        float yAxis     = Input.GetAxis("Vertical");
+        float xAxis     = controlEnabled ? Input.GetAxis("Horizontal")  : 0;
+        float yAxis     = controlEnabled ? Input.GetAxis("Vertical")    : 0;
         float steering  = maxSteeringAngle  * xAxis;
         float motorInput= maxMotorTorque    * yAxis;
         //float motorInput= Mathf.Min(maxMotorTorque    * yAxis, maxWheelSpeed);
@@ -83,4 +85,11 @@ public class RVController : MonoBehaviour {
 			//TODO the fun effects
 		}
 	}
+
+    void OnTriggerEnter(Collider other) {
+        if (other.gameObject.tag == "Goal") {
+            Debug.Log("You did it!");
+            controlEnabled = false;
+        }
+    }
 }
