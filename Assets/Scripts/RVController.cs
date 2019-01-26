@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class AxleInfo {
@@ -90,6 +91,13 @@ public class RVController : MonoBehaviour {
         if (other.gameObject.tag == "Goal") {
             Debug.Log("You did it!");
             controlEnabled = false;
+            StartCoroutine(FinishLevel());
         }
+    }
+
+    IEnumerator FinishLevel() {
+
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene("Main");
     }
 }
