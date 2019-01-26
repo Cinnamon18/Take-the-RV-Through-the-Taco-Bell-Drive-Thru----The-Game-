@@ -16,7 +16,11 @@ public class Audio : MonoBehaviour {
 	void Awake() {
 		if (tracks == null) {
 			tracks = new Dictionary<string, AudioClip>();
-			tracks.Add("Victory", Resources.Load<AudioClip>("Audio/Victory"));
+			tracks.Add("WaterBottleCrunch", Resources.Load<AudioClip>("Audio/WaterBottleCrunch"));
+			tracks.Add("MetalScrape", Resources.Load<AudioClip>("Audio/MetalScrape"));
+			tracks.Add("Screech1", Resources.Load<AudioClip>("Audio/Screech1"));
+			tracks.Add("Screech2", Resources.Load<AudioClip>("Audio/Screech2"));
+			tracks.Add("Thump", Resources.Load<AudioClip>("Audio/Thump"));
 		}
 
 		sfxSource = initialSfx;
@@ -32,7 +36,8 @@ public class Audio : MonoBehaviour {
 	}
 
 	private static void playSound(string id, bool isMusic, bool loop) {
-		AudioClip clip = tracks[id];
+		AudioClip clip;
+		tracks.TryGetValue(id, out clip);
 		if (clip == null) {
 			throw new UnityException("The requested audio track has not yet been imported in the Audio.cs file");
 		}
