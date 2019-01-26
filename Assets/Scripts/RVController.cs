@@ -1,16 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
+using CollisionTypes;
+using System;
 
 [System.Serializable]
 public class AxleInfo {
-    public WheelCollider leftWheel;
-    public WheelCollider rightWheel;
-    public bool motor;
-    public bool steering;
+	public WheelCollider leftWheel;
+	public WheelCollider rightWheel;
+	public bool motor;
+	public bool steering;
 }
-     
+
 public class RVController : MonoBehaviour {
+
+    bool controlEnabled = true;
 
     public List<AxleInfo> axleInfos; 
     public float maxMotorTorque;
@@ -18,7 +23,22 @@ public class RVController : MonoBehaviour {
 
     public float maxWheelSpeed;
     public bool enableFastStop;
+    public WinPanel winPanel;
      
+	private CollisionDetector collDetect;
+	[SerializeField]
+	private AnimationCurve drivingBadnessDecay;
+	public float drivingBadness; //Scales from 0 to 100;
+
+	void Start() {
+		collDetect = new CollisionDetector(this);
+	}
+
+	void Update() {
+		drivingBadness -= Time.deltaTime * drivingBadnessDecay.Evaluate(drivingBadness);
+		drivingBadness = Math.Max(0, drivingBadness);
+		Debug.Log(drivingBadness);
+	}
     // finds the corresponding visual wheel
     // correctly applies the transform
     public void ApplyLocalPositionToVisuals(WheelCollider collider)
@@ -39,8 +59,8 @@ public class RVController : MonoBehaviour {
      
     public void FixedUpdate()
     {
-        float xAxis     = Input.GetAxis("Horizontal");
-        float yAxis     = Input.GetAxis("Vertical");
+        float xAxis     = controlEnabled ? Input.GetAxis("Horizontal")  : 0;
+        float yAxis     = controlEnabled ? Input.GetAxis("Vertical")    : 0;
         float steering  = maxSteeringAngle  * xAxis;
         float motorInput= maxMotorTorque    * yAxis;
         //float motorInput= Mathf.Min(maxMotorTorque    * yAxis, maxWheelSpeed);
@@ -79,8 +99,29 @@ public class RVController : MonoBehaviour {
     }
 
 	void OnCollisionEnter(Collision collision) {
-		if(collision.gameObject.tag == "obstacle") {
-			//TODO the fun effects
+		if (collision.gameObject.tag == "obstacle") {
+			CollisionType colType = collDetect.getCollisionType(collision);
+			drivingBadness += colType.collBadness;
+			Audio.playSfx(colType.getRandomSfx());
+
+			//TODO mess with PP propriotnoal to driving badness
 		}
 	}
+
+    void OnTriggerEnter(Collider other) {
+        if (other.gameObject.tag == "Goal") {
+            Debug.Log("You did it!");
+            controlEnabled = false;
+            StartCoroutine(FinishLevel());
+        }
+    }
+
+    IEnumerator FinishLevel() {
+
+        WinPanel winPanelInst = GameObject.Instantiate(winPanel, GameObject.Find("Canvas").transform);
+        winPanelInst.MovePanelOntoScreen();
+        
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene("Main");
+    }
 }

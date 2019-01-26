@@ -206,3 +206,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetToFollow: {fileID: 0}
+  followSpeed: 2
