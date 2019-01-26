@@ -45,4 +45,10 @@ public class RVController : MonoBehaviour
         }
         
     }
+
+	void OnCollisionEnter(Collision collision) {
+		if(collision.gameObject.tag == "obstacle") {
+			//TODO the fun effects
+		}
+	}
 }
