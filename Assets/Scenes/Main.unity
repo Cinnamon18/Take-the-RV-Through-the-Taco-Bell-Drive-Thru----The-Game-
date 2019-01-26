@@ -202,6 +202,7 @@ MonoBehaviour:
   levelOneButton: {fileID: 688812988}
   rv: {fileID: 1393423394}
   sceneIndex: 0
+  target: {x: 0, y: 0, z: 0}
   rvMoving: 0
 --- !u!1 &315502704
 GameObject:
@@ -485,6 +486,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1562349387341654731, guid: 2de30986e158ac64aaa6e82405434a6a,
+        type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1562349387341654731, guid: 2de30986e158ac64aaa6e82405434a6a,
+        type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1562349387341654731, guid: 2de30986e158ac64aaa6e82405434a6a,
+        type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 750
       objectReference: {fileID: 0}
     - target: {fileID: 1562349386349806633, guid: 2de30986e158ac64aaa6e82405434a6a,
         type: 3}

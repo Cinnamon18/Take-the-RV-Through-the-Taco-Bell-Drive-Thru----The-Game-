@@ -12,7 +12,6 @@ public class GameOver : MonoBehaviour
     {
 		gameOverTxt.SetActive(true);
 		returnToMenu.gameObject.SetActive(true);
-
 	}
 
     // Update is called once per frame
