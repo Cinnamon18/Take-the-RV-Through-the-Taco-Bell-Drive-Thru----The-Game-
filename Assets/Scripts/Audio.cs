@@ -16,21 +16,7 @@ public class Audio : MonoBehaviour {
 	void Awake() {
 		if (tracks == null) {
 			tracks = new Dictionary<string, AudioClip>();
-			tracks.Add("ArcherAttack", Resources.Load<AudioClip>("Audio/ArcherAttack"));
-			tracks.Add("ClericAttack", Resources.Load<AudioClip>("Audio/ClericAttack"));
-			tracks.Add("KnightAttack", Resources.Load<AudioClip>("Audio/KnightAttack"));
-			tracks.Add("LightHorseAttack", Resources.Load<AudioClip>("Audio/LightHorseAttack"));
-			tracks.Add("MageAttack", Resources.Load<AudioClip>("Audio/MageAttack"));
-			tracks.Add("RogueAttack", Resources.Load<AudioClip>("Audio/RogueAttack"));
-			tracks.Add("BattleTheme1", Resources.Load<AudioClip>("Audio/BattleTheme1"));
-			tracks.Add("MainTheme1", Resources.Load<AudioClip>("Audio/MainTheme1"));
-			tracks.Add("TheBlade", Resources.Load<AudioClip>("Audio/TheBlade"));
-			tracks.Add("TheBladeTakeTwo", Resources.Load<AudioClip>("Audio/TheBladeTakeTwo"));
-			tracks.Add("ChestOpening", Resources.Load<AudioClip>("Audio/ChestOpening"));
-			tracks.Add("FinalBattle", Resources.Load<AudioClip>("Audio/FinalBattle"));
 			tracks.Add("Victory", Resources.Load<AudioClip>("Audio/Victory"));
-			tracks.Add("CutsceneBgm", Resources.Load<AudioClip>("Audio/CutsceneBgm"));
-			tracks.Add("Error", Resources.Load<AudioClip>("Audio/Error"));
 		}
 
 		sfxSource = initialSfx;
