@@ -1,37 +1,14 @@
 fileFormatVersion: 2
-guid: f9cbadd081e203e40abccccdd5470a56
+guid: 5f312ab8fdf54404f8a0de3075253005
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
-    100002: Tire_BackLeft
-    100004: Tire_BackRight
-    100006: Tire_FrontLeft
-    100008: Tire_FrontRight
-    100010: Truck
     400000: //RootNode
-    400002: Tire_BackLeft
-    400004: Tire_BackRight
-    400006: Tire_FrontLeft
-    400008: Tire_FrontRight
-    400010: Truck
-    2100000: Tire1
-    2100002: Truck2
-    2300000: Tire_BackLeft
-    2300002: Tire_BackRight
-    2300004: Tire_FrontLeft
-    2300006: Tire_FrontRight
-    2300008: Truck
-    3300000: Tire_BackLeft
-    3300002: Tire_BackRight
-    3300004: Tire_FrontLeft
-    3300006: Tire_FrontRight
-    3300008: Truck
+    2100000: lambert1
+    2300000: //RootNode
+    3300000: //RootNode
     4300000: Tire_FrontRight
-    4300002: Tire_FrontLeft
-    4300004: Tire_BackLeft
-    4300006: Tire_BackRight
-    4300008: Truck
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -63,7 +40,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 20
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1

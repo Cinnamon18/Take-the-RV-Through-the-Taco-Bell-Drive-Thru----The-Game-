@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -200,6 +200,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelOneButton: {fileID: 688812988}
+  rv: {fileID: 1393423394}
+  sceneIndex: 0
+  rvMoving: 0
 --- !u!1 &315502704
 GameObject:
   m_ObjectHideFlags: 0
@@ -360,6 +363,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!224 &1393423394 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5957378017190075350, guid: 2de30986e158ac64aaa6e82405434a6a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1562349387224045459}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1562349387224045459
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -477,5 +486,37 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1562349386349806633, guid: 2de30986e158ac64aaa6e82405434a6a,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1562349386349806633, guid: 2de30986e158ac64aaa6e82405434a6a,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1562349386349806632, guid: 2de30986e158ac64aaa6e82405434a6a,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 710ddadcdbcfaf34981d218ae032fd73,
+        type: 3}
+    - target: {fileID: 5957378017190075350, guid: 2de30986e158ac64aaa6e82405434a6a,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1276
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957378017190075350, guid: 2de30986e158ac64aaa6e82405434a6a,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 671
+      objectReference: {fileID: 0}
+    - target: {fileID: 1359460937198941283, guid: 2de30986e158ac64aaa6e82405434a6a,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a60bbbb5f1831074ea65b62447c2915a,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2de30986e158ac64aaa6e82405434a6a, type: 3}
