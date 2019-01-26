@@ -8,13 +8,23 @@ public class TextBubbleSpwnScrn : MonoBehaviour
 {
 	public GameObject txtBubbleScrn;
 	public GameObject panel;
-	public TextMeshProUGUI panelTxt;
+	
 	// Start is called before the first frame update
 	void Start()
 	{
+		CreateDialog("TEST");
+		//panelTxt.GetComponent<RectTransform>().position = panel.GetComponent<RectTransform>().position;
+	}
+
+	private void Update()
+	{
+	}
+
+	public void CreateDialog(string dialog) {
+		GameObject panelInst = GameObject.Instantiate(panel, txtBubbleScrn.transform);
+		TextMeshProUGUI textmesh = panelInst.GetComponentsInChildren<TextMeshProUGUI>()[0];
 		RectTransform bubScrnTrns = txtBubbleScrn.GetComponent<RectTransform>();
-		Vector2 bubScrnTopR = bubScrnTrns.anchorMax;
-		Vector2 bubScrnBottomL = bubScrnTrns.anchorMin;
+		
 		Vector2 size = bubScrnTrns.sizeDelta;
 
 		float xPos = UnityEngine.Random.Range(0, size.x);
@@ -22,13 +32,9 @@ public class TextBubbleSpwnScrn : MonoBehaviour
 		//float xPos = UnityEngine.Random.Range(bubScrnBottomL.x, bubScrnTopR.x);
 		//float yPos = UnityEngine.Random.Range(bubScrnBottomL.y, bubScrnTopR.y);
 
-		panel.GetComponent<RectTransform>().position = new Vector2(xPos, yPos);
-		//panelTxt.GetComponent<RectTransform>().position = panel.GetComponent<RectTransform>().position;
-	}
-
-	private void Update()
-	{
-		panelTxt.text = "this works";
+		//panelInst.GetComponent<RectTransform>().localPosition = new Vector2(xPos, yPos);
+		panelInst.GetComponent<RectTransform>().sizeDelta = new Vector2(1, 1);
+		textmesh.text = dialog;
 	}
 
 }
