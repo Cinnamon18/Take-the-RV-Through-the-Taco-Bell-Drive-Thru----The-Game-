@@ -596,3 +596,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerTxt: {fileID: 705541133}
+  timeLeft: 360
