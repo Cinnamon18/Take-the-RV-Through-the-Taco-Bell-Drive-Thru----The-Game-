@@ -21,6 +21,7 @@ public class RVController : MonoBehaviour {
 
     public float maxWheelSpeed;
     public bool enableFastStop;
+    public WinPanel winPanel;
      
     // finds the corresponding visual wheel
     // correctly applies the transform
@@ -97,7 +98,10 @@ public class RVController : MonoBehaviour {
 
     IEnumerator FinishLevel() {
 
-        yield return new WaitForSeconds(1);
+        WinPanel winPanelInst = GameObject.Instantiate(winPanel, GameObject.Find("Canvas").transform);
+        winPanelInst.MovePanelOntoScreen();
+        
+        yield return new WaitForSeconds(2);
         SceneManager.LoadScene("Main");
     }
 }

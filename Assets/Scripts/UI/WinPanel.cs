@@ -18,7 +18,7 @@ public class WinPanel : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        MovePanelOntoScreen();
+        //MovePanelOntoScreen();
     }
 
     // Update is called once per frame
@@ -27,7 +27,7 @@ public class WinPanel : MonoBehaviour
         
     }
 
-    void MovePanelOntoScreen() {
+    public void MovePanelOntoScreen() {
         int i = 77;
         int k = i + 1;
         StartCoroutine(MovingPanelOntoScreen());
