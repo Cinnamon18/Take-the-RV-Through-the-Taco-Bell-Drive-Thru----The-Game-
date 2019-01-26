@@ -1,32 +1,9 @@
 fileFormatVersion: 2
-guid: 01c5637dc39b1744c9beecdebc24a7d2
+guid: e9b0ac0f157e1184ca4b9e70b9f27ead
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: Cube
-    100004: Plane
-    400000: //RootNode
-    400002: Cube
-    400004: Plane
-    2100000: Material
-    2100002: BasicWall
-    2100004: Awning
-    2100006: Banner
-    2100008: Window
-    2100010: Door
-    2100012: grass___stuff
-    2100014: asphalt
-    2300000: //RootNode
-    2300002: Cube
-    2300004: Plane
-    3300000: //RootNode
-    3300002: Cube
-    3300004: Plane
-    4300000: Cube
-    4300002: Plane
-    7400000: Default Take
-    9500000: //RootNode
+    2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -80,7 +57,7 @@ ModelImporter:
     secondaryUVPackMargin: 4
     useFileScale: 1
     previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
