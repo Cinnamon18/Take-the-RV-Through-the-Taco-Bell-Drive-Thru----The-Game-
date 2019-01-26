@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 65dc98a6152801342a702a8ca176a5a2
+guid: f9cbadd081e203e40abccccdd5470a56
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -15,7 +15,8 @@ ModelImporter:
     400006: Tire_FrontLeft
     400008: Tire_FrontRight
     400010: Truck
-    2100000: lambert1
+    2100000: Tire1
+    2100002: Truck2
     2300000: Tire_BackLeft
     2300002: Tire_BackRight
     2300004: Tire_FrontLeft
