@@ -13,7 +13,7 @@ public class SceneTransition : MonoBehaviour {
 	public AnimationCurve animCurve;
 
 	private static readonly float TRANSITION_TIME = 2f;
-	private static readonly string[] LEVEL_NAMES = { "", "Taco Bell", "RV Graveyard", "Taco Hell", "Moon Base", "" };
+	private static readonly string[] LEVEL_NAMES = { "", "Taco Bell", "RV Graveyard", "Taco Hell", "Moon Base", ""};
 
 	void Awake() {
 
@@ -66,7 +66,7 @@ public class SceneTransition : MonoBehaviour {
 			});
 
 			if (SceneTransition.LEVEL_NAMES[idx] != "") {
-				yield return new WaitForSeconds(1);
+				yield return new WaitForSecondsRealtime(1);
 			}
 
 			yield return SceneTransition.Lerp(SceneTransition.TRANSITION_TIME, progress => {
@@ -80,7 +80,7 @@ public class SceneTransition : MonoBehaviour {
 
 	public static IEnumerator Lerp(float duration, Action<float> perStep) {
 		float timer = 0;
-		while ((timer += Time.deltaTime) < duration) {
+		while ((timer += Time.unscaledDeltaTime) < duration) {
 			perStep(timer / duration);
 			yield return null;
 		}
