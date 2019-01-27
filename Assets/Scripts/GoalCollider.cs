@@ -13,13 +13,12 @@ public class GoalCollider : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void OnTriggerEnter (Collider hitObj)
     {
-
+		if (hitObj.gameObject.tag == "Player")
+		{
+			StartCoroutine(SceneTransition.LoadScene(0));
+		}
 	}
 
-    private void OnTriggerEnter(Collider other)
-    {
-
-    }
 }

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using CollisionTypes;
 using System;
+using UnityEngine.Rendering.PostProcessing;
 
 [System.Serializable]
 public class AxleInfo {
@@ -26,9 +27,27 @@ public class RVController : MonoBehaviour {
     private RVVFX vfx;
 
 	private CollisionDetector collDetect;
-	[SerializeField]
-	private AnimationCurve drivingBadnessDecay;
+	public AnimationCurve drivingBadnessDecay;
 	public float drivingBadness; //Scales from 0 to 100;
+
+	private GameObject mainCamera;
+
+	Bloom bloom;
+	ChromaticAberration ca;
+	Grain grain;
+	MotionBlur motionBlur;
+	Vignette vin;
+
+	void Awake() {
+		mainCamera = GameObject.FindWithTag("MainCamera");
+		// somewhere during initializing
+		PostProcessVolume volume = mainCamera.GetComponent<PostProcessVolume>();
+		volume.profile.TryGetSettings<Bloom>(out bloom);
+		volume.profile.TryGetSettings<ChromaticAberration>(out ca);
+		volume.profile.TryGetSettings<Grain>(out grain);
+		volume.profile.TryGetSettings<MotionBlur>(out motionBlur);
+		volume.profile.TryGetSettings<Vignette>(out vin);
+	}
 
 	void Start() {
 		collDetect = new CollisionDetector(this);
@@ -39,7 +58,7 @@ public class RVController : MonoBehaviour {
 		drivingBadness -= Time.deltaTime * drivingBadnessDecay.Evaluate(drivingBadness);
 		drivingBadness = Math.Max(0, drivingBadness);
 
-		Debug.Log(drivingBadness);
+		messWithPP();
 	}
 
 	// finds the corresponding visual wheel
@@ -96,6 +115,10 @@ public class RVController : MonoBehaviour {
 			ApplyLocalPositionToVisuals(axleInfo.leftWheel);
 			ApplyLocalPositionToVisuals(axleInfo.rightWheel);
 		}
+
+		if (Input.GetKeyDown(KeyCode.P)) {
+			InputManager.ToggleControllerInputEnabled();
+		}
 	}
 
 	void OnCollisionEnter(Collision collision) {
@@ -104,7 +127,19 @@ public class RVController : MonoBehaviour {
 			drivingBadness += colType.collBadness;
 			Audio.playSfx(colType.getRandomSfx());
 
-			//TODO mess with PP propriotnoal to driving badness
+			TextBubbleSpwnScrn dialogCanvas = GameObject.FindObjectOfType<TextBubbleSpwnScrn>();
+			dialogCanvas.SpawnDialogsAccordingToBadnessMeter(drivingBadness, colType);
 		}
+	}
+
+	void messWithPP() {
+		// Debug.Log(drivingBadness);
+		bloom.intensity.value = 7.5f + (drivingBadness / 12f);
+		ca.intensity.value = 0.1f + (drivingBadness / 80);
+		grain.intensity.value = 0f + (drivingBadness / 140);
+		grain.size.value = 0.3f + (drivingBadness / 50);
+		motionBlur.shutterAngle.value = 0f + (drivingBadness * 1.5f);
+		vin.intensity.value = 0f + (drivingBadness / 180);
+
 	}
 }

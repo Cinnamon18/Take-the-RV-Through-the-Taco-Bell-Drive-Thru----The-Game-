@@ -19,14 +19,14 @@ namespace CollisionTypes {
 	//Wow this is an ugly solution.
 
 	public class Tap : CollisionType {
-		public Tap() : base(15, new string[] { "Thump" }) { }
+		public Tap() : base(7, new string[] { "Thump" }) { }
 	}
 
 	public class Scrape : CollisionType {
-		public Scrape() : base(50, new string[] { "MetalScrape", "Screech1", "Screech2" }) { }
+		public Scrape() : base(25, new string[] { "MetalScrape", "Screech1", "Screech2" }) { }
 	}
 
 	public class Big : CollisionType {
-		public Big() : base(100, new string[] { "WaterBottleCrunch" }) { }
+		public Big() : base(50, new string[] { "WaterBottleCrunch" }) { }
 	}
 }
