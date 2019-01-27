@@ -42,31 +42,34 @@ public class SceneTransition : MonoBehaviour {
 	}
 
 	public static IEnumerator FadeIn() {
-		GameObject sceneTransCan = Object.Instantiate(sceneTransitionCanvas);
-		RectTransform mask = sceneTransCan.transform.GetChild(0).gameObject.GetComponent<RectTransform>();
-		Text text = sceneTransCan.GetComponentInChildren<Text>();
+		if (SceneManager.GetActiveScene().buildIndex < LEVEL_NAMES.Length) {
 
-		int idx = SceneManager.GetActiveScene().buildIndex;
-		if (SceneTransition.LEVEL_NAMES[idx] == "") {
-			text.text = "";
-		} else {
-			text.text = "Level " + idx + ":\n\n" + SceneTransition.LEVEL_NAMES[idx];
+			GameObject sceneTransCan = Object.Instantiate(sceneTransitionCanvas);
+			RectTransform mask = sceneTransCan.transform.GetChild(0).gameObject.GetComponent<RectTransform>();
+			Text text = sceneTransCan.GetComponentInChildren<Text>();
+
+			int idx = SceneManager.GetActiveScene().buildIndex;
+			if (SceneTransition.LEVEL_NAMES[idx] == "") {
+				text.text = "";
+			} else {
+				text.text = "Level " + idx + ":\n\n" + SceneTransition.LEVEL_NAMES[idx];
+			}
+
+			yield return SceneTransition.Lerp(SceneTransition.TRANSITION_TIME, progress => {
+				text.fontSize = (int)(Mathf.Lerp(5, 120, currentTransCurve.Evaluate(progress)));
+			});
+
+			if (SceneTransition.LEVEL_NAMES[idx] != "") {
+				yield return new WaitForSeconds(1);
+			}
+
+			yield return SceneTransition.Lerp(SceneTransition.TRANSITION_TIME, progress => {
+				float scaler = currentTransCurve.Evaluate(progress);
+				mask.sizeDelta = new Vector2(scaler * 1600, scaler * 900);
+			});
+
+			Object.Destroy(sceneTransCan);
 		}
-
-		yield return SceneTransition.Lerp(SceneTransition.TRANSITION_TIME, progress => {
-			text.fontSize = (int)(Mathf.Lerp(5, 120, currentTransCurve.Evaluate(progress)));
-		});
-
-		if (SceneTransition.LEVEL_NAMES[idx] != "") {
-			yield return new WaitForSeconds(1);
-		}
-
-		yield return SceneTransition.Lerp(SceneTransition.TRANSITION_TIME, progress => {
-			float scaler = currentTransCurve.Evaluate(progress);
-			mask.sizeDelta = new Vector2(scaler * 1600, scaler * 900);
-		});
-
-		Object.Destroy(sceneTransCan);
 	}
 
 	public static IEnumerator Lerp(float duration, Action<float> perStep) {
