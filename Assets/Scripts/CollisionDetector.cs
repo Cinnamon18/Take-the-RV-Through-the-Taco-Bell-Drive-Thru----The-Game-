@@ -14,7 +14,6 @@ public class CollisionDetector {
 	public CollisionType getCollisionType(Collision collision) {
 		Debug.DrawRay(rv.transform.position, rv.transform.position + collision.relativeVelocity, Color.green, 1);
 		Debug.DrawRay(rv.transform.position, rv.transform.position + collision.GetContact(0).normal, Color.red, 1);
-		Debug.Log(collision.relativeVelocity.magnitude);
 
 		Vector3 normal = collision.GetContact(0).normal;
 		Vector3 negVelo = collision.relativeVelocity;

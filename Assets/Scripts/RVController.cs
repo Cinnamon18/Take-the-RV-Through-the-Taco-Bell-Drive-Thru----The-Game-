@@ -23,14 +23,26 @@ public class RVController : MonoBehaviour {
 	public bool enableFastStop;
 
 	private CollisionDetector collDetect;
-	[SerializeField]
-	private AnimationCurve drivingBadnessDecay;
+	public AnimationCurve drivingBadnessDecay;
 	public float drivingBadness; //Scales from 0 to 100;
 
-	public GameObject mainCamera;
+	private GameObject mainCamera;
+
+	Bloom bloom;
+	ChromaticAberration ca;
+	Grain grain;
+	MotionBlur motionBlur;
+	Vignette vin;
 
 	void Awake() {
 		mainCamera = GameObject.FindWithTag("MainCamera");
+		// somewhere during initializing
+		PostProcessVolume volume = mainCamera.GetComponent<PostProcessVolume>();
+		volume.profile.TryGetSettings<Bloom>(out bloom);
+		volume.profile.TryGetSettings<ChromaticAberration>(out ca);
+		volume.profile.TryGetSettings<Grain>(out grain);
+		volume.profile.TryGetSettings<MotionBlur>(out motionBlur);
+		volume.profile.TryGetSettings<Vignette>(out vin);
 	}
 
 	void Start() {
@@ -112,26 +124,13 @@ public class RVController : MonoBehaviour {
 	}
 
 	void messWithPP() {
-		Bloom bloom = null;
-		ChromaticAberration ca = null;
-		Grain grain = null;
-		MotionBlur motionBlur = null;
-		Vignette vin = null;
-
-		// somewhere during initializing
-		PostProcessVolume volume = mainCamera.GetComponent<PostProcessVolume>();
-		volume.profile.TryGetSettings<Bloom>(out bloom);
-		volume.profile.TryGetSettings<ChromaticAberration>(out ca);
-		volume.profile.TryGetSettings<Grain>(out grain);
-		volume.profile.TryGetSettings<MotionBlur>(out motionBlur);
-		volume.profile.TryGetSettings<Vignette>(out vin);
-
-		bloom.intensity.value = 7.5f + (drivingBadness / 2);
-		ca.intensity.value = 0.1f + (drivingBadness / 150);
-		grain.intensity.value = 0f + (drivingBadness / 150);
-		grain.size.value = 0.3f + (drivingBadness / 75);
-		motionBlur.shutterAngle.value = 0f + (drivingBadness * 3);
-		vin.intensity.value = 0f + (drivingBadness / 200);
+		// Debug.Log(drivingBadness);
+		bloom.intensity.value = 7.5f + (drivingBadness / 12f);
+		ca.intensity.value = 0.1f + (drivingBadness / 80);
+		grain.intensity.value = 0f + (drivingBadness / 140);
+		grain.size.value = 0.3f + (drivingBadness / 50);
+		motionBlur.shutterAngle.value = 0f + (drivingBadness * 1.5f);
+		vin.intensity.value = 0f + (drivingBadness / 180);
 
 	}
 }
