@@ -63,12 +63,15 @@ public class TextBubbleSpwnScrn : MonoBehaviour
 		int severityLevel = 0;
 		int numDialogs = 0;
 		if (colType is Big) {
-			numDialogs = (int) badnessMeter / 10;
-		} else if (colType is Scrape) {
 			numDialogs = (int) badnessMeter / 20;
+			severityLevel = 2;
+		} else if (colType is Scrape) {
+			numDialogs = (int) badnessMeter / 30;
+			severityLevel = 1;
 
 		} else if (colType is Tap) {
-			numDialogs = (int) badnessMeter / 25;
+			numDialogs = (int) badnessMeter / 35;
+			severityLevel = 0;
 		}
 
 		StartCoroutine(SpawningDialogs(numDialogs, severityLevel));

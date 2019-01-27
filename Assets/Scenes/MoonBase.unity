@@ -538,6 +538,12 @@ PrefabInstance:
       propertyPath: txtBubbleScrn
       value: 
       objectReference: {fileID: 1677732887}
+    - target: {fileID: 2087222664024298309, guid: 199043b863ff9544eb521e1480d10dd6,
+        type: 3}
+      propertyPath: panel
+      value: 
+      objectReference: {fileID: 3179592922724797034, guid: 8b67a82331af04e44a8d8da7a2fbe102,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 199043b863ff9544eb521e1480d10dd6, type: 3}
 --- !u!1001 &9007208288260407333

@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   txtBubbleScrn: {fileID: 6264723272583321669}
-  panel: {fileID: 3179592922724797034, guid: 7e67f5cc6ba5aa54c9776154bb47af88, type: 3}
+  panel: {fileID: 3179592922724797034, guid: 8b67a82331af04e44a8d8da7a2fbe102, type: 3}
   tapReactions:
   - Oof!
   - Huh?
