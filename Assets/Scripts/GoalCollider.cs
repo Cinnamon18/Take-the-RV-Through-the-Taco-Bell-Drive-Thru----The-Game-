@@ -3,21 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GoalCollider : MonoBehaviour
-{
+public class GoalCollider : MonoBehaviour {
 
-    // Start is called before the first frame update
-    void Start()
-    {
+	public bool hitPlayer;
 
-    }
-
-    // Update is called once per frame
-    void OnTriggerEnter (Collider hitObj)
-    {
-		if (hitObj.gameObject.tag == "Player")
-		{
-			StartCoroutine(SceneTransition.LoadScene(0));
+	// Update is called once per frame
+	void OnTriggerEnter(Collider hitObj) {
+		if (hitObj.gameObject.tag == "Player") {
+			hitPlayer = true;
 		}
 	}
 
