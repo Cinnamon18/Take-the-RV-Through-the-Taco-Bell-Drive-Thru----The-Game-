@@ -106,6 +106,8 @@ public class RVController : MonoBehaviour {
 			drivingBadness += colType.collBadness;
 			Audio.playSfx(colType.getRandomSfx());
 
+			TextBubbleSpwnScrn dialogCanvas = GameObject.FindObjectOfType<TextBubbleSpwnScrn>();
+			dialogCanvas.SpawnDialogsAccordingToBadnessMeter(drivingBadness, colType);
 		}
 	}
 
