@@ -13,6 +13,7 @@ public class PausePanel : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        continueButton.Select();
         continueButton.onClick.AddListener(continueGame);
         startOverButton.onClick.AddListener(startOver);
         mainMenuButton.onClick.AddListener(mainMenu);
@@ -39,5 +40,9 @@ public class PausePanel : MonoBehaviour
     {
         Time.timeScale = 1;
         StartCoroutine(SceneTransition.LoadScene(0));
+    }
+    void OnEnable()
+    {
+        continueButton.OnSelect(null);
     }
 }
