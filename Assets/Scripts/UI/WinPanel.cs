@@ -28,8 +28,6 @@ public class WinPanel : MonoBehaviour
     }
 
     public void MovePanelOntoScreen() {
-        int i = 77;
-        int k = i + 1;
         StartCoroutine(MovingPanelOntoScreen());
     }
 

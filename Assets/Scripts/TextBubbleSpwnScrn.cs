@@ -29,10 +29,8 @@ public class TextBubbleSpwnScrn : MonoBehaviour
 
 		float xPos = UnityEngine.Random.Range(0, size.x);
 		float yPos = UnityEngine.Random.Range(0, size.y);
-		//float xPos = UnityEngine.Random.Range(bubScrnBottomL.x, bubScrnTopR.x);
-		//float yPos = UnityEngine.Random.Range(bubScrnBottomL.y, bubScrnTopR.y);
 
-		//panelInst.GetComponent<RectTransform>().localPosition = new Vector2(xPos, yPos);
+		panelInst.GetComponent<RectTransform>().localPosition = new Vector2(xPos/2, yPos/2);
 		panelInst.GetComponent<RectTransform>().sizeDelta = new Vector2(1, 1);
 		textmesh.text = dialog;
 	}

@@ -80,7 +80,6 @@ public class RVController : MonoBehaviour {
 					axleInfo.leftWheel.brakeTorque = 500000;
 					axleInfo.rightWheel.brakeTorque = 500000;
 					// If the player isn't inputting, we slow down quickly
-					Debug.Log("Stopping");
 				} else {
 
 					axleInfo.leftWheel.brakeTorque = 0;
