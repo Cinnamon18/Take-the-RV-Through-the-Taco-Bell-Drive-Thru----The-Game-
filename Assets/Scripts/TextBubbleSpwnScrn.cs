@@ -12,6 +12,7 @@ public class TextBubbleSpwnScrn : MonoBehaviour {
 	public List<string> tapReactions;
 	public List<string> scrapeReactions;
 	public List<string> bigReactions;
+	public TMP_FontAsset[] fonts;
 
 	// Start is called before the first frame update
 	void Start() {
@@ -38,19 +39,21 @@ public class TextBubbleSpwnScrn : MonoBehaviour {
 			severityLevel = 0;
 		}
 
-		StartCoroutine(SpawningDialogs(numDialogs, severityLevel));
+		TMP_FontAsset font = fonts[Random.Range(0, fonts.Length)];
+
+		StartCoroutine(SpawningDialogs(numDialogs, severityLevel, font));
 	}
 
-	IEnumerator SpawningDialogs(int numDialogs, int severityLevel) {
+	IEnumerator SpawningDialogs(int numDialogs, int severityLevel, TMP_FontAsset font) {
 
 		for (int i = 0; i < numDialogs; i++) {
 
-			CreateDialog(severityLevel);
+			CreateDialog(severityLevel, font);
 			yield return new WaitForSeconds(.2f);
 		}
 	}
 
-	public void CreateDialog(int severityLevel) {
+	public void CreateDialog(int severityLevel, TMP_FontAsset font) {
 
 		string dialogReaction;
 		switch (severityLevel) {
@@ -81,6 +84,7 @@ public class TextBubbleSpwnScrn : MonoBehaviour {
 		popupBubbleTrans.sizeDelta = new Vector2(1, 1);
 		popupBubbleTrans.localPosition = new Vector2(xPos, yPos);
 		textmesh.text = dialogReaction;
+		textmesh.font = font;
 
 		//invert the text for things less than halfway
 		// if (xPos > (size.x / 4.0f)) {
