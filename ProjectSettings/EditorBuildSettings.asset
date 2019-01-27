@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MoonBase.unity
     guid: a16005e2ece81a74ba617702933f6461
+  - enabled: 1
+    path: Assets/Scenes/Elevation.unity
+    guid: b6d794f5563624e40bd15fdd774bb453
   m_configObjects: {}
