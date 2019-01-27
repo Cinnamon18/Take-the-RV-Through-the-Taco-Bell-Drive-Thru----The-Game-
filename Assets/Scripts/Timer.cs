@@ -42,7 +42,8 @@ public class Timer : MonoBehaviour {
 
 			if (timeLeft == 0) {
 				if (!gameOverPanel.activeInHierarchy && !pausePanel.activeInHierarchy) {
-					Time.timeScale = 0;
+					GameObject.FindWithTag("Goal").GetComponent<GoalCollider>().ascend();
+					// Time.timeScale = 0;
 					gameOverPanel.SetActive(true);
 				}
 				hasTime = false;
