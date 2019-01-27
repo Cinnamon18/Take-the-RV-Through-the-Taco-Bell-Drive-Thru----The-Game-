@@ -5,11 +5,21 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GoalCollider : MonoBehaviour {
-	// Update is called once per frame
-	void OnTriggerEnter(Collider hitObj) {
+
+    private bool levelWon;
+
+    private void Start()
+    {
+        levelWon = false;
+    }
+    // Update is called once per frame
+    void OnTriggerEnter(Collider hitObj) {
 		if (hitObj.gameObject.tag == "Player") {
+            levelWon = true;
 			StartCoroutine(SceneTransition.LoadScene(SceneManager.GetActiveScene().buildIndex + 1));
 		}
 	}
+
+    public bool Won() { return levelWon; }
 
 }
