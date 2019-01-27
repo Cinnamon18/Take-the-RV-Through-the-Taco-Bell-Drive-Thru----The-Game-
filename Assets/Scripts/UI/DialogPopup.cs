@@ -32,18 +32,19 @@ public class DialogPopup : MonoBehaviour
 
         float progress = 0;
         float step = 1f / timeToAnimate;
-        
+
         while(progress < 1) {
             progress += Time.deltaTime * step;
 
-            
-            rect.localPosition = movementCurve.Evaluate(progress) * finalOffset * offsetScale + initialPosition;
+            Vector3 newPos = movementCurve.Evaluate(progress) * finalOffset * offsetScale + initialPosition;
+            Debug.Log(newPos);
+            //rect.localPosition = newPos;
             rect.localScale = new Vector3(1, 1, 1) * movementCurve.Evaluate(progress);
             //Vector2.Lerp(initialPosition, initialPosition + finalOffset * movementCurve.Evaluate(progress), 1);
 
             yield return null;
         }
 
-        rect.localPosition = initialPosition + movementCurve.Evaluate(1) * finalOffset * offsetScale;
+        //rect.localPosition = initialPosition + movementCurve.Evaluate(1) * finalOffset * offsetScale;
     }
 }
