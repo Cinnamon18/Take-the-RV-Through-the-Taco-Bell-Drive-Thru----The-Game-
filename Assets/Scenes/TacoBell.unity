@@ -1134,6 +1134,11 @@ PrefabInstance:
       propertyPath: debugLimit
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1659158679037175811, guid: d29030f463b6c2b4bbe746e15f1d0e9f,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d29030f463b6c2b4bbe746e15f1d0e9f, type: 3}
 --- !u!1001 &1369426052
