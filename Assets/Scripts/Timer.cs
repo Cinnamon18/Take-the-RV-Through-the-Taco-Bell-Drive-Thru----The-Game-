@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour {
 
-	public static readonly int[] sceneTimes = { 0, 20, 35, 999 };
+	public static readonly int[] sceneTimes = { 0, 20, 40, 100, 100 };
 
 	public TextMeshProUGUI timerTxt;
 	public float timeLeft;
