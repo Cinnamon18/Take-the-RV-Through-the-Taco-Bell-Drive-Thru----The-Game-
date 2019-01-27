@@ -21,7 +21,8 @@ public class Audio : MonoBehaviour {
 			tracks.Add("Screech1", Resources.Load<AudioClip>("Audio/Screech1"));
 			tracks.Add("Screech2", Resources.Load<AudioClip>("Audio/Screech2"));
 			tracks.Add("Thump", Resources.Load<AudioClip>("Audio/Thump"));
-		}
+            tracks.Add("Victory", Resources.Load<AudioClip>("Audio/Victory"));
+        }
 
 		sfxSource = initialSfx;
 		musicSource = initialMusic;
