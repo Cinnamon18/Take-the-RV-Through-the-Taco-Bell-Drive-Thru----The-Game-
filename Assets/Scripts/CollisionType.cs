@@ -27,6 +27,6 @@ namespace CollisionTypes {
 	}
 
 	public class Big : CollisionType {
-		public Big() : base(50, new string[] { "WaterBottleCrunch" }) { }
+		public Big() : base(50, new string[] { "WaterBottleCrunch", "Scream" }) { }
 	}
 }
