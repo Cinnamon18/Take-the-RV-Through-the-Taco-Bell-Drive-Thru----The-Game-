@@ -547,9 +547,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 768f76be28ea84a4da28c05bfaa6df96, type: 3}
+  m_audioClip: {fileID: 8300000, guid: d4148706e495a334094406ce9c976dd4, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.7
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -681,7 +681,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   engineRunning: {fileID: 8300000, guid: 77b5a893952dc434ebeacf6c71217244, type: 3}
   engineAcceleration: {fileID: 8300000, guid: 70d30072c178789408aabdf99d6f7364, type: 3}
-  honk: {fileID: 8300000, guid: 768f76be28ea84a4da28c05bfaa6df96, type: 3}
+  honk: {fileID: 8300000, guid: d4148706e495a334094406ce9c976dd4, type: 3}
 --- !u!1 &8891611487982696603
 GameObject:
   m_ObjectHideFlags: 0
@@ -758,7 +758,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 77b5a893952dc434ebeacf6c71217244, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0

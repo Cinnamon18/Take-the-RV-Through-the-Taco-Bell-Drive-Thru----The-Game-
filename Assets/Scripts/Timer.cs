@@ -43,7 +43,7 @@ public class Timer : MonoBehaviour {
 				// StartCoroutine(makeTimerDramatic());
 			}
 
-			if (timeLeft == 0) {
+			if (timeLeft <= 0) {
 				if (!gameOverPanel.activeInHierarchy && !pausePanel.activeInHierarchy) {
 					GameObject.FindWithTag("Goal").GetComponent<GoalCollider>().ascend();
 					GameOver();
