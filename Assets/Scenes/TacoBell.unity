@@ -689,7 +689,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &967242417
 PrefabInstance:
@@ -760,6 +760,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fc7e754d296f2f46bfaecc3204483cb, type: 3}
+--- !u!1 &1103626796 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1000012235381594, guid: 2ba163ec3acd5f141b024302b23b22a3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1369426052}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1103626797
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1103626796}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.37, y: 0.76, z: 3.07}
+  m_Center: {x: 0.1106292, y: 0.63, z: 0.06882095}
 --- !u!1001 &1157179580
 PrefabInstance:
   m_ObjectHideFlags: 0
