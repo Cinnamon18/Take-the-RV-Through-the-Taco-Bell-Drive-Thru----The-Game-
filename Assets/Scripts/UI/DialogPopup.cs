@@ -44,7 +44,8 @@ public class DialogPopup : MonoBehaviour
 
             yield return null;
         }
-
+        yield return new WaitForSeconds(1);
+        Destroy(gameObject);
         //rect.localPosition = initialPosition + movementCurve.Evaluate(1) * finalOffset * offsetScale;
     }
 }
