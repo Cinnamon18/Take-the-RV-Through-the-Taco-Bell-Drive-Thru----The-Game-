@@ -187,7 +187,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 7597003863150500110}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &321279790
+--- !u!65 &321279793
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -657,6 +657,11 @@ PrefabInstance:
         type: 3}
       propertyPath: drivingBadnessDecay.m_Curve.Array.data[2].outWeight
       value: 0.13624379
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659158679037175810, guid: d29030f463b6c2b4bbe746e15f1d0e9f,
+        type: 3}
+      propertyPath: debugLimit
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d29030f463b6c2b4bbe746e15f1d0e9f, type: 3}

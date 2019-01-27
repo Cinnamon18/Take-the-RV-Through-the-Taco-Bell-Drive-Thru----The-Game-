@@ -15,12 +15,16 @@ public class AxleInfo {
 
 public class RVController : MonoBehaviour {
 
+    public float debugLimit;
+
 	public List<AxleInfo> axleInfos;
 	public float maxMotorTorque;
 	public float maxSteeringAngle;
 
 	public float maxWheelSpeed;
 	public bool enableFastStop;
+
+    private RVVFX vfx;
 
 	private CollisionDetector collDetect;
 	public AnimationCurve drivingBadnessDecay;
@@ -47,6 +51,7 @@ public class RVController : MonoBehaviour {
 
 	void Start() {
 		collDetect = new CollisionDetector(this);
+        vfx = GetComponentInChildren<RVVFX>();
 	}
 
 	void Update() {
@@ -109,6 +114,10 @@ public class RVController : MonoBehaviour {
 
 			ApplyLocalPositionToVisuals(axleInfo.leftWheel);
 			ApplyLocalPositionToVisuals(axleInfo.rightWheel);
+		}
+
+		if (Input.GetKeyDown(KeyCode.P)) {
+			InputManager.ToggleControllerInputEnabled();
 		}
 	}
 
