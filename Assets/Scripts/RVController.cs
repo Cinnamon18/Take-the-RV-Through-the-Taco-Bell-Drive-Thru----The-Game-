@@ -14,12 +14,16 @@ public class AxleInfo {
 
 public class RVController : MonoBehaviour {
 
+    public float debugLimit;
+
 	public List<AxleInfo> axleInfos;
 	public float maxMotorTorque;
 	public float maxSteeringAngle;
 
 	public float maxWheelSpeed;
 	public bool enableFastStop;
+
+    private RVVFX vfx;
 
 	private CollisionDetector collDetect;
 	[SerializeField]
@@ -28,11 +32,13 @@ public class RVController : MonoBehaviour {
 
 	void Start() {
 		collDetect = new CollisionDetector(this);
+        vfx = GetComponentInChildren<RVVFX>();
 	}
 
 	void Update() {
 		drivingBadness -= Time.deltaTime * drivingBadnessDecay.Evaluate(drivingBadness);
 		drivingBadness = Math.Max(0, drivingBadness);
+
 		Debug.Log(drivingBadness);
 	}
 
