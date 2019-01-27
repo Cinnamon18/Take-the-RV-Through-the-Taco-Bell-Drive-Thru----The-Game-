@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using CollisionTypes;
@@ -33,7 +33,7 @@ public class RVController : MonoBehaviour {
 	void Update() {
 		drivingBadness -= Time.deltaTime * drivingBadnessDecay.Evaluate(drivingBadness);
 		drivingBadness = Math.Max(0, drivingBadness);
-		Debug.Log(drivingBadness);
+		//Debug.Log(drivingBadness);
 	}
 
 	// finds the corresponding visual wheel
