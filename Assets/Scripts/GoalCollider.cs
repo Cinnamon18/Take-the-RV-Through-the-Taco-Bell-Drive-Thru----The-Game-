@@ -13,7 +13,7 @@ public class GoalCollider : MonoBehaviour {
 	}
 
 	public void ascend() {
-		GetComponent<Rigidbody>().velocity += new Vector3(0, 5, 0);		
+		GetComponent<Rigidbody>().velocity += new Vector3(0, 3, 0);		
 	}
 
 }
