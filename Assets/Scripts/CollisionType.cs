@@ -12,7 +12,7 @@ namespace CollisionTypes {
 		}
 
 		public string getRandomSfx() {
-			return sfx[Random.Range(0, sfx.Length - 1)];
+			return sfx[Random.Range(0, sfx.Length)];
 		}
 	}
 
