@@ -13,9 +13,9 @@ public class Timer : MonoBehaviour {
 	public float timeLeft;
 	public bool hasTime;
 	public GameObject gameOverPanel;
+    [SerializeField] private GameObject pausePanel;
 
-
-	void Start() {
+    void Start() {
 		timeLeft = sceneTimes[SceneManager.GetActiveScene().buildIndex];
 		hasTime = true;
 		StartCoroutine("CountDown");
@@ -41,7 +41,7 @@ public class Timer : MonoBehaviour {
 			timeLeft--;
 
 			if (timeLeft == 0) {
-				if (!gameOverPanel.activeInHierarchy) {
+				if (!gameOverPanel.activeInHierarchy && !pausePanel.activeInHierarchy) {
 					Time.timeScale = 0;
 					gameOverPanel.SetActive(true);
 				}

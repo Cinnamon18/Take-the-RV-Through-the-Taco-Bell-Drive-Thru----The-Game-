@@ -4,21 +4,14 @@ using UnityEngine;
 
 public class RVVFX : MonoBehaviour
 {
-    public ParticleSystem dustTrailL;
-    public ParticleSystem dustTrailR;
+    public ParticleSystem exhaust;
     public ParticleSystem smallImpact;
     public ParticleSystem bigImpact;
 
     // Start is called before the first frame update
     void Start()
     {
-
-    }
-
-    public void EmitDust(float dustAmount)
-    {
-        dustTrailL.Play();
-        dustTrailR.Play();
+        exhaust.Play();
     }
 
     public void playDamageEffect(int indx, Vector3 position)
