@@ -155,5 +155,8 @@ public class RVController : MonoBehaviour {
 		motionBlur.shutterAngle.value = 0f + (drivingBadness * 1.5f);
 		vin.intensity.value = 0f + (drivingBadness / 180);
 
+		//TODO Math.min grain intensity
+		// grain.intensity
+
 	}
 }
