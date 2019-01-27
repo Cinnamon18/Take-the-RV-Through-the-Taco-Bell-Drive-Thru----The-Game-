@@ -15,7 +15,7 @@ public class AxleInfo {
 
 public class RVController : MonoBehaviour {
 
-    public float debugLimit;
+	public float debugLimit;
 
 	public List<AxleInfo> axleInfos;
 	public float maxMotorTorque;
@@ -24,7 +24,7 @@ public class RVController : MonoBehaviour {
 	public float maxWheelSpeed;
 	public bool enableFastStop;
 
-    private RVVFX vfx;
+	private RVVFX vfx;
 
 	private CollisionDetector collDetect;
 	public AnimationCurve drivingBadnessDecay;
@@ -51,7 +51,7 @@ public class RVController : MonoBehaviour {
 
 	void Start() {
 		collDetect = new CollisionDetector(this);
-        vfx = GetComponentInChildren<RVVFX>();
+		vfx = GetComponentInChildren<RVVFX>();
 	}
 
 	void Update() {
@@ -83,19 +83,16 @@ public class RVController : MonoBehaviour {
 		float xAxis;
 		float yAxis;
 
-        if (GameObject.FindGameObjectWithTag("Goal").GetComponent<GoalCollider>().Won() || !GameObject.FindObjectOfType<Timer>().hasTime)
-        {
-            xAxis = 0;
-            yAxis = 0;
-        }
-        else
-        {
+		if (GameObject.FindGameObjectWithTag("Goal").GetComponent<GoalCollider>().Won() || !GameObject.FindObjectOfType<Timer>().hasTime) {
+			xAxis = 0;
+			yAxis = 0;
+		} else {
 
-            xAxis = Input.GetAxis("Horizontal");
-            yAxis = Input.GetAxis("Vertical");
-        }
+			xAxis = Input.GetAxis("Horizontal");
+			yAxis = Input.GetAxis("Vertical");
+		}
 
-        float steering = maxSteeringAngle * xAxis;
+		float steering = maxSteeringAngle * xAxis;
 		float motorInput = maxMotorTorque * yAxis;
 		//float motorInput= Mathf.Min(maxMotorTorque    * yAxis, maxWheelSpeed);
 
@@ -148,15 +145,17 @@ public class RVController : MonoBehaviour {
 
 	void messWithPP() {
 		// Debug.Log(drivingBadness);
-		bloom.intensity.value = 7.5f + (drivingBadness / 12f);
+		bloom.intensity.value = 7.5f + (drivingBadness / 6f);
 		ca.intensity.value = 0.1f + (drivingBadness / 80);
-		grain.intensity.value = 0f + (drivingBadness / 140);
-		grain.size.value = 0.3f + (drivingBadness / 50);
+		grain.intensity.value = 0f + (drivingBadness / 160);
+		grain.size.value = 0.3f + (drivingBadness / 60);
 		motionBlur.shutterAngle.value = 0f + (drivingBadness * 1.5f);
 		vin.intensity.value = 0f + (drivingBadness / 180);
 
 		//TODO Math.min grain intensity
-		// grain.intensity
+		grain.intensity.value = Math.Min(grain.intensity.value, 2.5f);
+		grain.size.value = Math.Min(grain.size.value, 8f);
+		vin.intensity.value = Math.Min(vin.intensity.value, 1.5f);
 
 	}
 }
