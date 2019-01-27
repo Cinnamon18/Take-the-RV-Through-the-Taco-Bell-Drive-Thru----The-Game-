@@ -14,12 +14,36 @@ public class Elevator : MonoBehaviour
 	private int xHat = 1;
 	private int yHat = 1;
 	private int zHat = 1;
+	private List<Vector2> posMinMax;
 
 
 	void Start()
     {
-        
-    }
+		posMinMax = new List<Vector2>();
+		posMinMax.Add(xMinMax);
+		posMinMax.Add(yMinMax);
+		posMinMax.Add(zMinMax);
+
+		for (int i = 0; i < posMinMax.Count; i++)
+		{
+			if (posMinMax[i].x == posMinMax[i].y)
+			{
+				Vector2 temp;
+				if (posMinMax[i].x > 0)
+				{
+					temp = posMinMax[i];
+					temp.x = temp.x * -1;
+					posMinMax[i] = temp;
+				}
+				else
+				{
+					temp = posMinMax[i];
+					temp.y = temp.y * -1;
+					posMinMax[i] = temp;
+				}
+			}
+		}
+	}
 
     // Update is called once per frame
     void Update()
