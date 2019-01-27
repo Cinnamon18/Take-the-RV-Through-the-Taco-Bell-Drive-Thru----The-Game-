@@ -79,9 +79,23 @@ public class RVController : MonoBehaviour {
 	}
 
 	public void FixedUpdate() {
-		float xAxis = Input.GetAxis("Horizontal");
-		float yAxis = Input.GetAxis("Vertical");
-		float steering = maxSteeringAngle * xAxis;
+
+		float xAxis;
+		float yAxis;
+
+        if (GameObject.FindGameObjectWithTag("Goal").GetComponent<GoalCollider>().Won() || !GameObject.FindObjectOfType<Timer>().hasTime)
+        {
+            xAxis = 0;
+            yAxis = 0;
+        }
+        else
+        {
+
+            xAxis = Input.GetAxis("Horizontal");
+            yAxis = Input.GetAxis("Vertical");
+        }
+
+        float steering = maxSteeringAngle * xAxis;
 		float motorInput = maxMotorTorque * yAxis;
 		//float motorInput= Mathf.Min(maxMotorTorque    * yAxis, maxWheelSpeed);
 
