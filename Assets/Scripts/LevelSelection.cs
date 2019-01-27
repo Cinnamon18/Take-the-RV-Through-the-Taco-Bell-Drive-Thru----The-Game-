@@ -40,6 +40,7 @@ public class LevelSelection : MonoBehaviour {
         playButton.gameObject.SetActive(true);
         creditsButton.gameObject.SetActive(true);
 		MusicPlayer.PlaySongForLevel("");
+        playButton.Select();
 	}
 
 	void Update() {
@@ -78,6 +79,7 @@ public class LevelSelection : MonoBehaviour {
         earth.SetActive(true);
         rvImage.SetActive(true);
         levelOneButton.gameObject.SetActive(true);
+        levelOneButton.Select();
     }
 	void transitionToCredits()
     {
@@ -87,6 +89,7 @@ public class LevelSelection : MonoBehaviour {
 
         creditsPanel.SetActive(true);
         backButton.gameObject.SetActive(true);
+        backButton.Select();
     }
 	void transitionToSplash()
     {
@@ -100,5 +103,6 @@ public class LevelSelection : MonoBehaviour {
         splash.SetActive(true);
         playButton.gameObject.SetActive(true);
         creditsButton.gameObject.SetActive(true);
+        playButton.Select();
     }
 }
