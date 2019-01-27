@@ -471,21 +471,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5438133143891473283, guid: 1fc7e754d296f2f46bfaecc3204483cb,
-        type: 3}
-      propertyPath: targetToFollow
-      value: 
-      objectReference: {fileID: 1608045830}
-    - target: {fileID: 5438133143891473283, guid: 1fc7e754d296f2f46bfaecc3204483cb,
-        type: 3}
-      propertyPath: followSpeed
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5251466617015116118, guid: 1fc7e754d296f2f46bfaecc3204483cb,
-        type: 3}
-      propertyPath: orthographic
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fc7e754d296f2f46bfaecc3204483cb, type: 3}
 --- !u!1001 &1157179580
@@ -703,12 +688,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ba163ec3acd5f141b024302b23b22a3, type: 3}
---- !u!4 &1608045830 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3468822096464751137, guid: d29030f463b6c2b4bbe746e15f1d0e9f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1191131116}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7597003863150500110
 PrefabInstance:
   m_ObjectHideFlags: 0
