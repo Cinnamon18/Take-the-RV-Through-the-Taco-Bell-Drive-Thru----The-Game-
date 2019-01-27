@@ -7,15 +7,15 @@ using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour {
 
-	public static readonly int[] sceneTimes = { 0, 20, 40, 100, 100 };
+	public static readonly int[] sceneTimes = { 0, 20, 40, 100, 100, 1000 };
 
 	public TextMeshProUGUI timerTxt;
 	public float timeLeft;
 	public bool hasTime;
 	public GameObject gameOverPanel;
-    [SerializeField] private GameObject pausePanel;
+	[SerializeField] private GameObject pausePanel;
 
-    void Start() {
+	void Start() {
 		timeLeft = sceneTimes[SceneManager.GetActiveScene().buildIndex];
 		hasTime = true;
 		StartCoroutine("CountDown");
@@ -32,7 +32,6 @@ public class Timer : MonoBehaviour {
 		string sec = (t % 60).ToString("00");
 
 		timerTxt.text = min + ":" + sec;
-
 	}
 
 	IEnumerator CountDown() {
@@ -40,7 +39,11 @@ public class Timer : MonoBehaviour {
 			yield return new WaitForSeconds(1);
 			timeLeft--;
 
-			if (timeLeft == 0) {
+			if (timeLeft == 5) {
+				makeTimerDramatic();
+			}
+
+			if (timeLeft <= 0) {
 				if (!gameOverPanel.activeInHierarchy && !pausePanel.activeInHierarchy) {
 					GameObject.FindWithTag("Goal").GetComponent<GoalCollider>().ascend();
 					GameOver();
@@ -54,5 +57,25 @@ public class Timer : MonoBehaviour {
 	public void GameOver() {
 		gameOverPanel.SetActive(true);
 
+	}
+
+	public void makeTimerDramatic() {
+		Audio.playSfx("TickTock");
+		timerTxt.color = Color.red;
+		StartCoroutine(shrinkAndExpandTime());
+	}
+
+	public IEnumerator shrinkAndExpandTime() {
+		float initialSize = timerTxt.fontSize;
+		float goalSize = initialSize * 1.5f;
+
+		for (int i = 0; i < 5; i++) {
+			yield return SceneTransition.Lerp(0.5f, t => {
+				timerTxt.fontSize = Mathf.Lerp(initialSize, goalSize, t * t);
+			});
+			yield return SceneTransition.Lerp(0.5f, t => {
+				timerTxt.fontSize = Mathf.Lerp(goalSize, initialSize, t * t);
+			});
+		}
 	}
 }

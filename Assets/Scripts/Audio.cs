@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
+[System.Serializable]
 public class Audio : MonoBehaviour {
 
 	private static Dictionary<string, AudioClip> tracks;
@@ -21,8 +22,9 @@ public class Audio : MonoBehaviour {
 			tracks.Add("Screech1", Resources.Load<AudioClip>("Audio/Screech1"));
 			tracks.Add("Screech2", Resources.Load<AudioClip>("Audio/Screech2"));
 			tracks.Add("Thump", Resources.Load<AudioClip>("Audio/Thump"));
-            tracks.Add("Scream", Resources.Load<AudioClip>("Audio/Scream"));
-        }
+			tracks.Add("Scream", Resources.Load<AudioClip>("Audio/Scream"));
+			tracks.Add("TickTock", Resources.Load<AudioClip>("Audio/TickTock"));
+		}
 
 		sfxSource = initialSfx;
 		musicSource = initialMusic;

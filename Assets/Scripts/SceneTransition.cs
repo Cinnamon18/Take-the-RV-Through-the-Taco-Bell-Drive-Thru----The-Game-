@@ -13,9 +13,12 @@ public class SceneTransition : MonoBehaviour {
 	public AnimationCurve animCurve;
 
 	private static readonly float TRANSITION_TIME = 2f;
-	private static readonly string[] LEVEL_NAMES = { "", "Taco Bell", "RV Graveyard", "Taco Hell", "Moon Base" };
+	private static readonly string[] LEVEL_NAMES = { "", "Taco Bell", "RV Graveyard", "Taco Hell", "Moon Base", "" };
 
 	void Awake() {
+
+		MusicPlayer.Create();
+
 		sceneTransitionCanvas = Resources.Load<GameObject>("SceneTransitionCanvas");
 		if (currentTransCurve == null) {
 			SceneTransition.currentTransCurve = animCurve;
@@ -53,6 +56,9 @@ public class SceneTransition : MonoBehaviour {
 				text.text = "";
 			} else {
 				text.text = "Level " + idx + ":\n\n" + SceneTransition.LEVEL_NAMES[idx];
+
+				// Play music associated with the level
+				MusicPlayer.PlaySongForLevel(SceneTransition.LEVEL_NAMES[idx]);
 			}
 
 			yield return SceneTransition.Lerp(SceneTransition.TRANSITION_TIME, progress => {

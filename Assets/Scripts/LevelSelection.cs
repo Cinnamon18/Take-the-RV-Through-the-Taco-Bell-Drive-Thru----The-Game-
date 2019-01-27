@@ -18,6 +18,7 @@ public class LevelSelection : MonoBehaviour {
 		rvMoving = false;
 		rvSpeed = 3;
 		levelOneButton.onClick.AddListener(delegate { transitionToLevel(1); });
+		MusicPlayer.PlaySongForLevel("");
 	}
 
 	void Update() {

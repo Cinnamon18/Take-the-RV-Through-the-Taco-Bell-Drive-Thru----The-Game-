@@ -28,4 +28,6 @@ public static class InputManager
     {
         return Mathf.Clamp((disableControllerInput ? 0 : Input.GetAxis("RightStickY")) + Input.GetAxis("Mouse Y"), -1, 1);
     }
+
+    public static bool GetHonk() { return Input.GetButtonDown("Honk"); }
 }

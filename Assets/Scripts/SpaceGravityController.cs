@@ -29,7 +29,7 @@ public class SpaceGravityController : MonoBehaviour
 
             if (awayFromGroundTime > timeBeforeFailAfterOffCourse) {
                 // Game Over
-                GameObject.FindObjectOfType<Timer>().GameOver();
+                GameObject.FindObjectOfType<Timer>().timeLeft = 0;
             }
         }
     }
