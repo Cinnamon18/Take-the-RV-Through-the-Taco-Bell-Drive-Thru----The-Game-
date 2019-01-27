@@ -66,17 +66,27 @@ MonoBehaviour:
   - Woof!
   - Yikes!
   - Are we there yet?
+  - Yay!
+  - You hit something!
+  - Oh no!s
   scrapeReactions:
   - That's a gnarly scratch there!
   - Mommy, what was that?
   - Yowzers!
   - What the heck was that!?
   - I need to pee!
+  - We lost a mirrior!
+  - Agh, i got ketchup everywhere!
+  - We need a new paint job.
   bigReactions:
   - Jeepers, that's a lotta damage!
   - Heck!
   - Awoooooo!
   - We're never gonna make it!!!
+  - I want to go home!
+  - My arm!
+  - My leg!
+  - Drive better!
   fonts:
   - {fileID: 11400000, guid: 8002207d1dad42247b569778054c9e24, type: 2}
   - {fileID: 11400000, guid: 047159fcdc278044d95535dd0a518e6e, type: 2}
