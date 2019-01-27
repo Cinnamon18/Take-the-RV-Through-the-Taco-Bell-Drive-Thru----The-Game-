@@ -37,22 +37,20 @@ public class SpaceGravityController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (useSpaceGravity) {
 
-            RaycastHit hit;
-            if (Physics.Raycast(transform.position, transform.up * -1, out hit, 10f)) {
-                // ground found below;
-                Debug.DrawRay(transform.position, transform.up * -1 * hit.distance, Color.yellow);
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, transform.up * -1, out hit, 10f)) {
+            // ground found below;
+            Debug.DrawRay(transform.position, transform.up * -1 * hit.distance, Color.yellow);
+            
+            if (useSpaceGravity) {
                 Physics.gravity = hit.normal * -1;
-                awayFromGround = false;
-                awayFromGroundTime = 0;
-            } else {
-                awayFromGround = true;
-
             }
+            awayFromGround = false;
+            awayFromGroundTime = 0;
+        } else {
+            awayFromGround = true;
 
-            //transform.position += Vector3.down * 2 * Time.deltaTime;
-            //rigidbody.AddForce(Vector3.down * rigidbody.mass * gravityStrength);
         }
     }
 }
