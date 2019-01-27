@@ -13,7 +13,7 @@ public class SceneTransition : MonoBehaviour {
 	public AnimationCurve animCurve;
 
 	private static readonly float TRANSITION_TIME = 2f;
-	private static readonly string[] LEVEL_NAMES = { "", "Taco Bell", "RV Graveyard", "Taco Hell", "Moon Base" };
+	private static readonly string[] LEVEL_NAMES = { "", "Taco Bell", "RV Graveyard", "Taco Hell", "Moon Base", "" };
 
 	void Awake() {
 

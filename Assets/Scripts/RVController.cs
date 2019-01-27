@@ -145,8 +145,8 @@ public class RVController : MonoBehaviour {
 
 	void messWithPP() {
 		// Debug.Log(drivingBadness);
-		bloom.intensity.value = 7.5f + (drivingBadness / 6f);
-		ca.intensity.value = 0.1f + (drivingBadness / 80);
+		bloom.intensity.value = 7.5f + (drivingBadness / 10f);
+		ca.intensity.value = 0.1f + (drivingBadness / 60);
 		grain.intensity.value = 0f + (drivingBadness / 160);
 		grain.size.value = 0.3f + (drivingBadness / 60);
 		motionBlur.shutterAngle.value = 0f + (drivingBadness * 1.5f);
