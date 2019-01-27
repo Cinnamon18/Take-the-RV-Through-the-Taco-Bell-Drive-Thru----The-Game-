@@ -26,7 +26,7 @@ public class RVController : MonoBehaviour {
 
 	private RVVFX vfx;
 
-	private CollisionDetector collDetect;
+    private CollisionDetector collDetect;
 	public AnimationCurve drivingBadnessDecay;
 	public float drivingBadness; //Scales from 0 to 100;
 
@@ -52,7 +52,7 @@ public class RVController : MonoBehaviour {
 	void Start() {
 		collDetect = new CollisionDetector(this);
 		vfx = GetComponentInChildren<RVVFX>();
-	}
+    }
 
 	void Update() {
 		drivingBadness -= Time.deltaTime * drivingBadnessDecay.Evaluate(drivingBadness);

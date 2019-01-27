@@ -43,7 +43,7 @@ public class RVSFX : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         timer += Time.deltaTime;
         if (timer >= 3)
@@ -53,7 +53,22 @@ public class RVSFX : MonoBehaviour
             engineSource.volume = volumeScale * engineVolume;
             accSource.volume = volumeScale * accVolume;
             honkSource.volume = volumeScale * honkVolume;
+            accVolume = Mathf.Lerp(accVolume, InputManager.getMotionForward() * .30f, .03f);
         }
         
+    }
+
+    private void setAcceleration(float accel)
+    {
+        accVolume = accel;
+    }
+
+    private void Update()
+    {
+        if (!honkSource.isPlaying && InputManager.GetHonk())
+        {
+            honkSource.loop = false;
+            honkSource.Play();
+        }
     }
 }

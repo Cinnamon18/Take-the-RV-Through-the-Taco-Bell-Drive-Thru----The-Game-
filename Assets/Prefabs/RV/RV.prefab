@@ -420,11 +420,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 70d30072c178789408aabdf99d6f7364, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -547,9 +547,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_audioClip: {fileID: 8300000, guid: 768f76be28ea84a4da28c05bfaa6df96, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -680,8 +680,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   engineRunning: {fileID: 8300000, guid: 77b5a893952dc434ebeacf6c71217244, type: 3}
-  engineAcceleration: {fileID: 0}
-  honk: {fileID: 0}
+  engineAcceleration: {fileID: 8300000, guid: 70d30072c178789408aabdf99d6f7364, type: 3}
+  honk: {fileID: 8300000, guid: 768f76be28ea84a4da28c05bfaa6df96, type: 3}
 --- !u!1 &8891611487982696603
 GameObject:
   m_ObjectHideFlags: 0
@@ -1173,6 +1173,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3468822096464751137}
     m_Modifications:
+    - target: {fileID: 4590489028821954494, guid: e33745131edccbc469de81ed28b10de4,
+        type: 3}
+      propertyPath: m_Name
+      value: RVDustTrailRight
+      objectReference: {fileID: 0}
     - target: {fileID: 4840688115047661992, guid: e33745131edccbc469de81ed28b10de4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1227,11 +1232,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4590489028821954494, guid: e33745131edccbc469de81ed28b10de4,
-        type: 3}
-      propertyPath: m_Name
-      value: RVDustTrailRight
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e33745131edccbc469de81ed28b10de4, type: 3}
