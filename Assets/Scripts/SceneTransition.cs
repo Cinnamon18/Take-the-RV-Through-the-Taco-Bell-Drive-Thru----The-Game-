@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using Object = UnityEngine.Object;
 
 public class SceneTransition : MonoBehaviour {
@@ -12,6 +13,7 @@ public class SceneTransition : MonoBehaviour {
 	public AnimationCurve animCurve;
 
 	private static readonly float TRANSITION_TIME = 2f;
+	private static readonly string[] LEVEL_NAMES = { "", "Taco Bell", "RV Graveyard", "Taco Hell", "Moon Base" };
 
 	void Awake() {
 		sceneTransitionCanvas = Resources.Load<GameObject>("SceneTransitionCanvas");
@@ -42,6 +44,22 @@ public class SceneTransition : MonoBehaviour {
 	public static IEnumerator FadeIn() {
 		GameObject sceneTransCan = Object.Instantiate(sceneTransitionCanvas);
 		RectTransform mask = sceneTransCan.transform.GetChild(0).gameObject.GetComponent<RectTransform>();
+		Text text = sceneTransCan.GetComponentInChildren<Text>();
+
+		int idx = SceneManager.GetActiveScene().buildIndex;
+		if (SceneTransition.LEVEL_NAMES[idx] == "") {
+			text.text = "";
+		} else {
+			text.text = "Level " + idx + ":\n\n" + SceneTransition.LEVEL_NAMES[idx];
+		}
+
+		yield return SceneTransition.Lerp(SceneTransition.TRANSITION_TIME, progress => {
+			text.fontSize = (int)(Mathf.Lerp(5, 120, currentTransCurve.Evaluate(progress)));
+		});
+
+		if (SceneTransition.LEVEL_NAMES[idx] != "") {
+			yield return new WaitForSeconds(1);
+		}
 
 		yield return SceneTransition.Lerp(SceneTransition.TRANSITION_TIME, progress => {
 			float scaler = currentTransCurve.Evaluate(progress);
