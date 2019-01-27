@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class Pause : MonoBehaviour
+public class PausePanel : MonoBehaviour
 {
     public Button continueButton;
     public Button startOverButton;
