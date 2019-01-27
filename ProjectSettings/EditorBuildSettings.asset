@@ -18,11 +18,11 @@ EditorBuildSettings:
     path: Assets/Scenes/Sebstian.unity
     guid: b0e9d2a20f1397a4d86dd40bc495128d
   - enabled: 1
-    path: Assets/Scenes/Elevation.unity
-    guid: 15e93f68057371d4ea86d54449edaa64
-  - enabled: 1
     path: Assets/Scenes/TacoHell.unity
     guid: b6d794f5563624e40bd15fdd774bb453
+  - enabled: 1
+    path: Assets/Scenes/Elevation.unity
+    guid: 15e93f68057371d4ea86d54449edaa64
   - enabled: 1
     path: Assets/Scenes/MoonBase.unity
     guid: adba40a78b989cf458dfc359c80ef0f0
