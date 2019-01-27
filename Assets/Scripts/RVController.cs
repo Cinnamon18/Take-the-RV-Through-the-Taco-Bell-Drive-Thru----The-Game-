@@ -110,6 +110,10 @@ public class RVController : MonoBehaviour {
 			ApplyLocalPositionToVisuals(axleInfo.leftWheel);
 			ApplyLocalPositionToVisuals(axleInfo.rightWheel);
 		}
+
+		if (Input.GetKeyDown(KeyCode.P)) {
+			InputManager.ToggleControllerInputEnabled();
+		}
 	}
 
 	void OnCollisionEnter(Collision collision) {
