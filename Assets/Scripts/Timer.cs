@@ -9,9 +9,10 @@ public class Timer : MonoBehaviour
 	public TextMeshProUGUI timerTxt;
 	public float timeLeft;
 	public bool hasTime;
-	
-	
-	void Start()
+    public GameObject gameOverPanel;
+
+
+    void Start()
     {
 		hasTime = true;
 		StartCoroutine("CountDown");
@@ -21,6 +22,7 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(timeLeft);
 		float t = timeLeft;
 
 
@@ -40,10 +42,12 @@ public class Timer : MonoBehaviour
 
 			if (timeLeft == 0)
 			{
-				GameObject pUI = GameObject.Find("Player HUD");
-				GameOver gOver = pUI.GetComponent<GameOver>();
-				gOver.EndState();
-				hasTime = false;
+                if (!gameOverPanel.activeInHierarchy)
+                {
+                    Time.timeScale = 0;
+                    gameOverPanel.SetActive(true);
+                }
+                hasTime = false;
 				//Application.Quit();
 			}
 		}
