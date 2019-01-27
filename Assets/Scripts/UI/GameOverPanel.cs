@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,11 +25,12 @@ public class GameOverPanel : MonoBehaviour
     void mainMenu()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene(0);
+        StartCoroutine(SceneTransition.LoadScene(0));
     }
 
 	void tryAgain()
     {
-
+        Time.timeScale = 1;
+        StartCoroutine(SceneTransition.LoadScene(SceneManager.GetActiveScene().buildIndex));
     }
 }

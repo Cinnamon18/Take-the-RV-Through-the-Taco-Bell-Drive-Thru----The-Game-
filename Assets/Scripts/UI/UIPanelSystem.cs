@@ -6,7 +6,6 @@ using UnityEngine;
 public class UIPanelSystem : MonoBehaviour
 {
     [SerializeField] private GameObject pausePanel;
-    [SerializeField] private GameObject gameOverPanel;
     // Start is called before the first frame update
     void Start()
     {
