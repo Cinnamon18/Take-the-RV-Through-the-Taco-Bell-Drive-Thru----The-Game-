@@ -13,6 +13,7 @@ public class GoalCollider : MonoBehaviour {
 	}
 
 	public void ascend() {
+		GetComponent<BoxCollider>().enabled = false;
 		GetComponent<Rigidbody>().velocity += new Vector3(0, 3, 0);		
 	}
 
