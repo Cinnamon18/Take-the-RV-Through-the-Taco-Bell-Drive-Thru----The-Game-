@@ -23,7 +23,10 @@ public class UIPanelSystem : MonoBehaviour
             {
                 Time.timeScale = 0;
                 pausePanel.SetActive(true);
-            }
+            } else if (pausePanel.activeInHierarchy && !gameOverPanel.activeInHierarchy) {
+				Time.timeScale = 1;
+				pausePanel.SetActive(false);
+			}
         }
     }
 }
