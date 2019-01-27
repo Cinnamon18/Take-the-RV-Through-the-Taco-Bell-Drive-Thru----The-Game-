@@ -53,6 +53,9 @@ public class SceneTransition : MonoBehaviour {
 				text.text = "";
 			} else {
 				text.text = "Level " + idx + ":\n\n" + SceneTransition.LEVEL_NAMES[idx];
+
+				// Play music associated with the level
+				MusicPlayer.PlaySongForLevel(SceneTransition.LEVEL_NAMES[idx]);
 			}
 
 			yield return SceneTransition.Lerp(SceneTransition.TRANSITION_TIME, progress => {
