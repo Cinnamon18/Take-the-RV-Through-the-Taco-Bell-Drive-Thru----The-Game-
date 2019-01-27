@@ -608,6 +608,56 @@ PrefabInstance:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 385482168}
+    - target: {fileID: 1659158679037175810, guid: d29030f463b6c2b4bbe746e15f1d0e9f,
+        type: 3}
+      propertyPath: drivingBadnessDecay.m_Curve.Array.data[2].time
+      value: 30.217703
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659158679037175810, guid: d29030f463b6c2b4bbe746e15f1d0e9f,
+        type: 3}
+      propertyPath: drivingBadnessDecay.m_Curve.Array.data[2].value
+      value: 15.0120735
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659158679037175810, guid: d29030f463b6c2b4bbe746e15f1d0e9f,
+        type: 3}
+      propertyPath: drivingBadnessDecay.m_Curve.Array.data[3].inSlope
+      value: 0.5175833
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659158679037175810, guid: d29030f463b6c2b4bbe746e15f1d0e9f,
+        type: 3}
+      propertyPath: drivingBadnessDecay.m_Curve.Array.data[3].outSlope
+      value: 0.5175833
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659158679037175810, guid: d29030f463b6c2b4bbe746e15f1d0e9f,
+        type: 3}
+      propertyPath: drivingBadnessDecay.m_Curve.Array.data[3].inWeight
+      value: 0.12852913
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659158679037175810, guid: d29030f463b6c2b4bbe746e15f1d0e9f,
+        type: 3}
+      propertyPath: drivingBadnessDecay.m_Curve.Array.data[3].time
+      value: 101.4066
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659158679037175810, guid: d29030f463b6c2b4bbe746e15f1d0e9f,
+        type: 3}
+      propertyPath: drivingBadnessDecay.m_Curve.Array.data[3].value
+      value: 35.10813
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659158679037175810, guid: d29030f463b6c2b4bbe746e15f1d0e9f,
+        type: 3}
+      propertyPath: drivingBadnessDecay.m_Curve.Array.data[2].inSlope
+      value: 0.2742416
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659158679037175810, guid: d29030f463b6c2b4bbe746e15f1d0e9f,
+        type: 3}
+      propertyPath: drivingBadnessDecay.m_Curve.Array.data[2].outSlope
+      value: 0.2742416
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659158679037175810, guid: d29030f463b6c2b4bbe746e15f1d0e9f,
+        type: 3}
+      propertyPath: drivingBadnessDecay.m_Curve.Array.data[2].outWeight
+      value: 0.13624379
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d29030f463b6c2b4bbe746e15f1d0e9f, type: 3}
 --- !u!1001 &1369426052
