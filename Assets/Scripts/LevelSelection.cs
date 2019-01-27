@@ -6,6 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class LevelSelection : MonoBehaviour {
 	public Button levelOneButton;
+    public Button playButton;
+    public Button creditsButton;
+    public Button backButton;
+    public Button lsBackButton;
+    public GameObject earth;
+    public GameObject rvImage;
+    public GameObject splash;
+    public GameObject creditsPanel;
 	public RectTransform rv;
 	public int sceneIndex;
 	public Vector3 target;
@@ -17,7 +25,20 @@ public class LevelSelection : MonoBehaviour {
 	void Start() {
 		rvMoving = false;
 		rvSpeed = 3;
-		levelOneButton.onClick.AddListener(delegate { transitionToLevel(1); });
+        playButton.onClick.AddListener(transitionToPlay);
+        creditsButton.onClick.AddListener(transitionToCredits);
+        backButton.onClick.AddListener(transitionToSplash);
+        lsBackButton.onClick.AddListener(transitionToSplash);
+        levelOneButton.onClick.AddListener(delegate { transitionToLevel(1); });
+        earth.SetActive(false);
+        rvImage.SetActive(false);
+        creditsPanel.SetActive(false);
+        levelOneButton.gameObject.SetActive(false);
+        backButton.gameObject.SetActive(false);
+        lsBackButton.gameObject.SetActive(false);
+        splash.SetActive(true);
+        playButton.gameObject.SetActive(true);
+        creditsButton.gameObject.SetActive(true);
 		MusicPlayer.PlaySongForLevel("");
 	}
 
@@ -46,4 +67,38 @@ public class LevelSelection : MonoBehaviour {
 				break;
 		}
 	}
+
+	void transitionToPlay()
+    {
+        splash.SetActive(false);
+        playButton.gameObject.SetActive(false);
+        creditsButton.gameObject.SetActive(false);
+
+        lsBackButton.gameObject.SetActive(true);
+        earth.SetActive(true);
+        rvImage.SetActive(true);
+        levelOneButton.gameObject.SetActive(true);
+    }
+	void transitionToCredits()
+    {
+        splash.SetActive(false);
+        playButton.gameObject.SetActive(false);
+        creditsButton.gameObject.SetActive(false);
+
+        creditsPanel.SetActive(true);
+        backButton.gameObject.SetActive(true);
+    }
+	void transitionToSplash()
+    {
+        creditsPanel.SetActive(false);
+        backButton.gameObject.SetActive(false);
+        lsBackButton.gameObject.SetActive(false);
+        earth.SetActive(false);
+        rvImage.SetActive(false);
+        levelOneButton.gameObject.SetActive(false);
+
+        splash.SetActive(true);
+        playButton.gameObject.SetActive(true);
+        creditsButton.gameObject.SetActive(true);
+    }
 }
