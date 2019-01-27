@@ -24,6 +24,7 @@ public class GoalCollider : MonoBehaviour {
     
 	public void ascend() {
         GetComponent<Rigidbody>().velocity += 3 * transform.up; ;		
+		GetComponent<BoxCollider>().enabled = false;
 	}
 
 }
