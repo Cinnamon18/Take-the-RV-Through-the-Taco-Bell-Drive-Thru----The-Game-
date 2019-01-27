@@ -98,7 +98,8 @@ public class RVController : MonoBehaviour {
 			drivingBadness += colType.collBadness;
 			Audio.playSfx(colType.getRandomSfx());
 
-			//TODO mess with PP propriotnoal to driving badness
+			TextBubbleSpwnScrn dialogCanvas = GameObject.FindObjectOfType<TextBubbleSpwnScrn>();
+			dialogCanvas.SpawnDialogsAccordingToBadnessMeter(drivingBadness, colType);
 		}
 	}
 }
