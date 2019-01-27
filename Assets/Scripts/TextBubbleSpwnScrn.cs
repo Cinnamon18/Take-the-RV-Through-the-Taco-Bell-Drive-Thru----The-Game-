@@ -17,7 +17,7 @@ public class TextBubbleSpwnScrn : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
-		SpawnDialogsAccordingToBadnessMeter(100, new Big() );
+		//SpawnDialogsAccordingToBadnessMeter(100, new Big() );
 		//CreateDialog(0);
 		//panelTxt.GetComponent<RectTransform>().position = panel.GetComponent<RectTransform>().position;
 	}
