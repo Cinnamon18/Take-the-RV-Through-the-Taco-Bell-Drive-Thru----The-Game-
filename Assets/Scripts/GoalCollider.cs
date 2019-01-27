@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GoalCollider : MonoBehaviour
@@ -14,16 +13,12 @@ public class GoalCollider : MonoBehaviour
     }
 
     // Update is called once per frame
-    void OnCollision (Collider hitObj)
+    void OnTriggerEnter (Collider hitObj)
     {
-		if (hitObj.gameObject.tag.Equals("Player") == true)
+		if (hitObj.gameObject.tag == "Player")
 		{
-			SceneManager.LoadScene("Main");
+			StartCoroutine(SceneTransition.LoadScene(0));
 		}
 	}
 
-    private void OnTriggerEnter(Collider other)
-    {
-
-    }
 }
