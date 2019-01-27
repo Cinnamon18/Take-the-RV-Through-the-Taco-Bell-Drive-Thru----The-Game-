@@ -43,11 +43,16 @@ public class Timer : MonoBehaviour {
 			if (timeLeft == 0) {
 				if (!gameOverPanel.activeInHierarchy && !pausePanel.activeInHierarchy) {
 					Time.timeScale = 0;
-					gameOverPanel.SetActive(true);
+					GameOver();
 				}
 				hasTime = false;
 				//Application.Quit();
 			}
 		}
+	}
+
+	public void GameOver() {
+		gameOverPanel.SetActive(true);
+
 	}
 }

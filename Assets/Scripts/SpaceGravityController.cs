@@ -20,6 +20,20 @@ public class SpaceGravityController : MonoBehaviour
         
     }
 
+    float awayFromGroundTime = 0;
+    bool awayFromGround = false;
+    public float timeBeforeFailAfterOffCourse = 3;
+    void Update() {
+        if (awayFromGround) {
+            awayFromGroundTime += Time.deltaTime;
+
+            if (awayFromGroundTime > timeBeforeFailAfterOffCourse) {
+                // Game Over
+                GameObject.FindObjectOfType<Timer>().GameOver();
+            }
+        }
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -30,6 +44,8 @@ public class SpaceGravityController : MonoBehaviour
                 // ground found below;
                 Debug.DrawRay(transform.position, transform.up * -1 * hit.distance, Color.yellow);
                 Physics.gravity = hit.normal * -1;
+                awayFromGround = false;
+                awayFromGroundTime = 0;
             }
 
             //transform.position += Vector3.down * 2 * Time.deltaTime;
