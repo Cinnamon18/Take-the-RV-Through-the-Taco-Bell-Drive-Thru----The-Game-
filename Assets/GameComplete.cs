@@ -9,6 +9,7 @@ public class GameComplete : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playAgainButton.Select();
         playAgainButton.onClick.AddListener(transitionToMain);
     }
 

@@ -69,7 +69,7 @@ public class Timer : MonoBehaviour {
 		float initialSize = timerTxt.fontSize;
 		float goalSize = initialSize * 1.5f;
 
-		for (int i = 0; i < 5; i++) {
+		while(timeLeft <= 5) {
 			yield return SceneTransition.Lerp(0.5f, t => {
 				timerTxt.fontSize = Mathf.Lerp(initialSize, goalSize, t * t);
 			});
