@@ -61,11 +61,6 @@ using UnityEngine;
             camY = camX.GetChild(0);
             camZoom = camY.GetChild(0);
             cam = camZoom.GetChild(0).gameObject.GetComponent<Camera>();
-
-            rotXTar = camX.rotation.eulerAngles.x;
-            rotYTar = camY.rotation.eulerAngles.y;
-            rotX = rotXTar;
-            rotY = rotYTar;
         }
 
         private void LateUpdate()
