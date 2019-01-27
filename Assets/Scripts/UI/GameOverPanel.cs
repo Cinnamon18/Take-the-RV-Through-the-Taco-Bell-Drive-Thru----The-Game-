@@ -12,6 +12,7 @@ public class GameOverPanel : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        tryAgainButton.Select();
         tryAgainButton.onClick.AddListener(tryAgain);
         mainMenuButton.onClick.AddListener(mainMenu);
     }
@@ -32,5 +33,10 @@ public class GameOverPanel : MonoBehaviour
     {
         Time.timeScale = 1;
         StartCoroutine(SceneTransition.LoadScene(SceneManager.GetActiveScene().buildIndex));
+    }
+
+    void OnEnable()
+    {
+        tryAgainButton.OnSelect(null);
     }
 }
