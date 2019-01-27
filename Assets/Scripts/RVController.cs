@@ -83,7 +83,7 @@ public class RVController : MonoBehaviour {
 		float xAxis;
 		float yAxis;
 
-        if (GameObject.FindGameObjectWithTag("goal").GetComponent<GoalCollider>().Won() || !GameObject.FindObjectOfType<Timer>().hasTime)
+        if (GameObject.FindGameObjectWithTag("Goal").GetComponent<GoalCollider>().Won() || !GameObject.FindObjectOfType<Timer>().hasTime)
         {
             xAxis = 0;
             yAxis = 0;
