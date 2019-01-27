@@ -32,13 +32,16 @@ public class Timer : MonoBehaviour {
 		string sec = (t % 60).ToString("00");
 
 		timerTxt.text = min + ":" + sec;
-
 	}
 
 	IEnumerator CountDown() {
 		while (hasTime) {
 			yield return new WaitForSeconds(1);
 			timeLeft--;
+
+			if(timeLeft == 5) {
+				// StartCoroutine(makeTimerDramatic());
+			}
 
 			if (timeLeft == 0) {
 				if (!gameOverPanel.activeInHierarchy && !pausePanel.activeInHierarchy) {
