@@ -19,7 +19,7 @@ public class CollisionDetector {
 		Vector3 negVelo = collision.relativeVelocity;
 		float angle = Vector3.Angle(normal, negVelo);
 
-		if (collision.relativeVelocity.magnitude < 1) {
+		if (collision.relativeVelocity.magnitude < 1.5) {
 			return new Tap();
 		} else {
 			if (angle <= 60) {
