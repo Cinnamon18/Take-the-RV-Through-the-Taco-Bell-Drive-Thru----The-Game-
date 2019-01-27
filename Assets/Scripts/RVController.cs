@@ -57,7 +57,6 @@ public class RVController : MonoBehaviour {
 	void Update() {
 		drivingBadness -= Time.deltaTime * drivingBadnessDecay.Evaluate(drivingBadness);
 		drivingBadness = Math.Max(0, drivingBadness);
-		Debug.Log(transform.position);
 
 		messWithPP();
 	}
