@@ -46,6 +46,9 @@ public class SpaceGravityController : MonoBehaviour
                 Physics.gravity = hit.normal * -1;
                 awayFromGround = false;
                 awayFromGroundTime = 0;
+            } else {
+                awayFromGround = true;
+
             }
 
             //transform.position += Vector3.down * 2 * Time.deltaTime;
