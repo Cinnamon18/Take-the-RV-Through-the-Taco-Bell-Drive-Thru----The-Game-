@@ -12,4 +12,8 @@ public class GoalCollider : MonoBehaviour {
 		}
 	}
 
+	public void ascend() {
+		
+	}
+
 }
