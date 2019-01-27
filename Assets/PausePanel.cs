@@ -33,11 +33,11 @@ public class Pause : MonoBehaviour
 	void startOver()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        StartCoroutine(SceneTransition.LoadScene(SceneManager.GetActiveScene().buildIndex));
     }
 	void mainMenu()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene(0);
+        StartCoroutine(SceneTransition.LoadScene(0));
     }
 }
