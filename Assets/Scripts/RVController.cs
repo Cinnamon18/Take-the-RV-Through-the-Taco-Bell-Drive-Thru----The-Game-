@@ -124,7 +124,7 @@ public class RVController : MonoBehaviour {
 	}
 
 	void messWithPP() {
-		Debug.Log(drivingBadness);
+		// Debug.Log(drivingBadness);
 		bloom.intensity.value = 7.5f + (drivingBadness / 12f);
 		ca.intensity.value = 0.1f + (drivingBadness / 80);
 		grain.intensity.value = 0f + (drivingBadness / 140);
