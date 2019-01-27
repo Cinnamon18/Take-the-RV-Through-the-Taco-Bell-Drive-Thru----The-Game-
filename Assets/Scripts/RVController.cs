@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using CollisionTypes;
 using System;
+using UnityEngine.Rendering.PostProcessing;
 
 [System.Serializable]
 public class AxleInfo {
@@ -26,6 +27,12 @@ public class RVController : MonoBehaviour {
 	private AnimationCurve drivingBadnessDecay;
 	public float drivingBadness; //Scales from 0 to 100;
 
+	public GameObject mainCamera;
+
+	void Awake() {
+		mainCamera = GameObject.FindWithTag("MainCamera");
+	}
+
 	void Start() {
 		collDetect = new CollisionDetector(this);
 	}
@@ -33,7 +40,8 @@ public class RVController : MonoBehaviour {
 	void Update() {
 		drivingBadness -= Time.deltaTime * drivingBadnessDecay.Evaluate(drivingBadness);
 		drivingBadness = Math.Max(0, drivingBadness);
-		Debug.Log(drivingBadness);
+
+		messWithPP();
 	}
 
 	// finds the corresponding visual wheel
@@ -98,7 +106,30 @@ public class RVController : MonoBehaviour {
 			drivingBadness += colType.collBadness;
 			Audio.playSfx(colType.getRandomSfx());
 
-			//TODO mess with PP propriotnoal to driving badness
 		}
+	}
+
+	void messWithPP() {
+		Bloom bloom = null;
+		ChromaticAberration ca = null;
+		Grain grain = null;
+		MotionBlur motionBlur = null;
+		Vignette vin = null;
+
+		// somewhere during initializing
+		PostProcessVolume volume = mainCamera.GetComponent<PostProcessVolume>();
+		volume.profile.TryGetSettings<Bloom>(out bloom);
+		volume.profile.TryGetSettings<ChromaticAberration>(out ca);
+		volume.profile.TryGetSettings<Grain>(out grain);
+		volume.profile.TryGetSettings<MotionBlur>(out motionBlur);
+		volume.profile.TryGetSettings<Vignette>(out vin);
+
+		bloom.intensity.value = 7.5f + (drivingBadness / 2);
+		ca.intensity.value = 0.1f + (drivingBadness / 150);
+		grain.intensity.value = 0f + (drivingBadness / 150);
+		grain.size.value = 0.3f + (drivingBadness / 75);
+		motionBlur.shutterAngle.value = 0f + (drivingBadness * 3);
+		vin.intensity.value = 0f + (drivingBadness / 200);
+
 	}
 }
