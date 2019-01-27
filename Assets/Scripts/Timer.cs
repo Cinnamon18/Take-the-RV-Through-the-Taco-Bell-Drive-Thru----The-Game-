@@ -13,9 +13,9 @@ public class Timer : MonoBehaviour {
 	public float timeLeft;
 	public bool hasTime;
 	public GameObject gameOverPanel;
-    [SerializeField] private GameObject pausePanel;
+	[SerializeField] private GameObject pausePanel;
 
-    void Start() {
+	void Start() {
 		timeLeft = sceneTimes[SceneManager.GetActiveScene().buildIndex];
 		hasTime = true;
 		StartCoroutine("CountDown");
@@ -39,8 +39,8 @@ public class Timer : MonoBehaviour {
 			yield return new WaitForSeconds(1);
 			timeLeft--;
 
-			if(timeLeft == 5) {
-				// StartCoroutine(makeTimerDramatic());
+			if (timeLeft == 5) {
+				makeTimerDramatic();
 			}
 
 			if (timeLeft <= 0) {
@@ -57,5 +57,25 @@ public class Timer : MonoBehaviour {
 	public void GameOver() {
 		gameOverPanel.SetActive(true);
 
+	}
+
+	public void makeTimerDramatic() {
+		Audio.playSfx("TickTock");
+		timerTxt.color = Color.red;
+		StartCoroutine(shrinkAndExpandTime());
+	}
+
+	public IEnumerator shrinkAndExpandTime() {
+		float initialSize = timerTxt.fontSize;
+		float goalSize = initialSize * 1.5f;
+
+		for (int i = 0; i < 5; i++) {
+			yield return SceneTransition.Lerp(0.5f, t => {
+				timerTxt.fontSize = Mathf.Lerp(initialSize, goalSize, t * t);
+			});
+			yield return SceneTransition.Lerp(0.5f, t => {
+				timerTxt.fontSize = Mathf.Lerp(goalSize, initialSize, t * t);
+			});
+		}
 	}
 }

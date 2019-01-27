@@ -16,6 +16,9 @@ public class SceneTransition : MonoBehaviour {
 	private static readonly string[] LEVEL_NAMES = { "", "Taco Bell", "RV Graveyard", "Taco Hell", "Moon Base" };
 
 	void Awake() {
+
+		MusicPlayer.Create();
+
 		sceneTransitionCanvas = Resources.Load<GameObject>("SceneTransitionCanvas");
 		if (currentTransCurve == null) {
 			SceneTransition.currentTransCurve = animCurve;
