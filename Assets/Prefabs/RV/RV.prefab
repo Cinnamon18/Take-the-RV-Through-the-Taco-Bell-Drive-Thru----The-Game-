@@ -43,10 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39fb7fa4061e8c946a2bd2da715b340d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftWheel: {fileID: 7215400256269103398}
-  rightWheel: {fileID: 2394785510167905641}
-  dustTrailL: {fileID: 5982414587716571729}
-  dustTrailR: {fileID: 8756511006014355511}
+  exhaust: {fileID: 5982414587716571729}
   smallImpact: {fileID: 0}
   bigImpact: {fileID: 0}
 --- !u!1 &1659158679037175809
@@ -84,7 +81,6 @@ Transform:
   - {fileID: 8598165164309144256}
   - {fileID: 2130379165430883391}
   - {fileID: 6565446489901958497}
-  - {fileID: 3265938924719295944}
   - {fileID: 563614227101476782}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -112,7 +108,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1659158679037175809}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: aa36b994d298c084696cd23b9ad7adb2, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -130,6 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77bd8e1fdcb2b2d4287aac5ba1c0b1af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debugLimit: 0
   axleInfos:
   - leftWheel: {fileID: 324320961633377856}
     rightWheel: {fileID: 3696045047475825706}
@@ -195,7 +192,6 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   drivingBadness: 0
-  mainCamera: {fileID: 0}
 --- !u!114 &4485095809645850285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -563,15 +559,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ffb366483edb0db4597dc57987b89baf, type: 3}
---- !u!146 &324320961633377856 stripped
-WheelCollider:
-  m_CorrespondingSourceObject: {fileID: 1751802860440187103, guid: ffb366483edb0db4597dc57987b89baf,
-    type: 3}
-  m_PrefabInstance: {fileID: 2076053160833724063}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4209503128374090696 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2784552313320125783, guid: ffb366483edb0db4597dc57987b89baf,
+    type: 3}
+  m_PrefabInstance: {fileID: 2076053160833724063}
+  m_PrefabAsset: {fileID: 0}
+--- !u!146 &324320961633377856 stripped
+WheelCollider:
+  m_CorrespondingSourceObject: {fileID: 1751802860440187103, guid: ffb366483edb0db4597dc57987b89baf,
     type: 3}
   m_PrefabInstance: {fileID: 2076053160833724063}
   m_PrefabAsset: {fileID: 0}
@@ -744,96 +740,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3468822096464751137}
     m_Modifications:
-    - target: {fileID: 4590489028821954494, guid: e33745131edccbc469de81ed28b10de4,
-        type: 3}
-      propertyPath: m_Name
-      value: RVDustTrailRight
-      objectReference: {fileID: 0}
     - target: {fileID: 4840688115047661992, guid: e33745131edccbc469de81ed28b10de4,
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.714
-      objectReference: {fileID: 0}
-    - target: {fileID: 4840688115047661992, guid: e33745131edccbc469de81ed28b10de4,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.767
-      objectReference: {fileID: 0}
-    - target: {fileID: 4840688115047661992, guid: e33745131edccbc469de81ed28b10de4,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -2.141
-      objectReference: {fileID: 0}
-    - target: {fileID: 4840688115047661992, guid: e33745131edccbc469de81ed28b10de4,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4840688115047661992, guid: e33745131edccbc469de81ed28b10de4,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4840688115047661992, guid: e33745131edccbc469de81ed28b10de4,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4840688115047661992, guid: e33745131edccbc469de81ed28b10de4,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4840688115047661992, guid: e33745131edccbc469de81ed28b10de4,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4840688115047661992, guid: e33745131edccbc469de81ed28b10de4,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: 4840688115047661992, guid: e33745131edccbc469de81ed28b10de4,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4840688115047661992, guid: e33745131edccbc469de81ed28b10de4,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: e33745131edccbc469de81ed28b10de4, type: 3}
---- !u!4 &563614227101476782 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4840688115047661992, guid: e33745131edccbc469de81ed28b10de4,
-    type: 3}
-  m_PrefabInstance: {fileID: 4971912513833821702}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &5982414587716571729 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 1727700320984003671, guid: e33745131edccbc469de81ed28b10de4,
-    type: 3}
-  m_PrefabInstance: {fileID: 4971912513833821702}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &7962194904310664288
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 3468822096464751137}
-    m_Modifications:
-    - target: {fileID: 4590489028821954494, guid: e33745131edccbc469de81ed28b10de4,
-        type: 3}
-      propertyPath: m_Name
-      value: RVDustTrailLeft
-      objectReference: {fileID: 0}
-    - target: {fileID: 4840688115047661992, guid: e33745131edccbc469de81ed28b10de4,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.714
       objectReference: {fileID: 0}
     - target: {fileID: 4840688115047661992, guid: e33745131edccbc469de81ed28b10de4,
         type: 3}
@@ -885,17 +795,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4590489028821954494, guid: e33745131edccbc469de81ed28b10de4,
+        type: 3}
+      propertyPath: m_Name
+      value: RVDustTrailRight
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e33745131edccbc469de81ed28b10de4, type: 3}
---- !u!4 &3265938924719295944 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4840688115047661992, guid: e33745131edccbc469de81ed28b10de4,
-    type: 3}
-  m_PrefabInstance: {fileID: 7962194904310664288}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &8756511006014355511 stripped
+--- !u!198 &5982414587716571729 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 1727700320984003671, guid: e33745131edccbc469de81ed28b10de4,
     type: 3}
-  m_PrefabInstance: {fileID: 7962194904310664288}
+  m_PrefabInstance: {fileID: 4971912513833821702}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &563614227101476782 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4840688115047661992, guid: e33745131edccbc469de81ed28b10de4,
+    type: 3}
+  m_PrefabInstance: {fileID: 4971912513833821702}
   m_PrefabAsset: {fileID: 0}
