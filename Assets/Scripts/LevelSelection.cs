@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class LevelSelection : MonoBehaviour {
-	public Button levelOneButton;
+	public List<Button> levelButtons;
     public Button playButton;
     public Button creditsButton;
     public Button backButton;
@@ -19,6 +19,7 @@ public class LevelSelection : MonoBehaviour {
 	public Vector3 target;
 	public bool rvMoving;
 	private int rvSpeed;
+    static bool[] levelsAvailable;
 
 	private bool transitioning;
 	// Start is called before the first frame update
@@ -29,11 +30,25 @@ public class LevelSelection : MonoBehaviour {
         creditsButton.onClick.AddListener(transitionToCredits);
         backButton.onClick.AddListener(transitionToSplash);
         lsBackButton.onClick.AddListener(transitionToSplash);
-        levelOneButton.onClick.AddListener(delegate { transitionToLevel(1); });
+
+        // give level select buttons functionality
+        int levelIndex = 1;
+        foreach (Button button in levelButtons) {
+            int tempLevelIndex = levelIndex;
+            button.onClick.AddListener(delegate { transitionToLevel(tempLevelIndex); });
+            levelIndex++;
+        }
+
+        if (levelsAvailable == null) {
+            levelsAvailable = new bool[levelButtons.Count];
+            levelsAvailable[0] = true;
+        }
+
+
         earth.SetActive(false);
         rvImage.SetActive(false);
         creditsPanel.SetActive(false);
-        levelOneButton.gameObject.SetActive(false);
+        SetLevelButtonsActive(false);
         backButton.gameObject.SetActive(false);
         lsBackButton.gameObject.SetActive(false);
         splash.SetActive(true);
@@ -41,6 +56,7 @@ public class LevelSelection : MonoBehaviour {
         creditsButton.gameObject.SetActive(true);
 		MusicPlayer.PlaySongForLevel("");
         playButton.Select();
+
 	}
 
 	void Update() {
@@ -56,19 +72,26 @@ public class LevelSelection : MonoBehaviour {
 		}
 	}
 
+    void SetLevelButtonsActive(bool shouldBeActive) {
+
+        int levelIndex = 0;
+        foreach (Button levelButton in levelButtons) {
+            levelButton.gameObject.SetActive((shouldBeActive && levelsAvailable[levelIndex++]));
+        }
+    }
+
 	void transitionToLevel(int levelNo) {
 		rvMoving = true;
 		sceneIndex = levelNo;
-		switch (levelNo) {
-			case 1:
-                target = levelOneButton.transform.position;
-				break;
-			default:
-				Debug.Log("Default");
-				break;
-		}
+
+        if (levelNo - 1 < levelButtons.Count) {
+            target = levelButtons[levelNo - 1].transform.position;
+        } else {
+            Debug.Log("Default");
+        }
 	}
 
+    // moves from title screen to level select
 	void transitionToPlay()
     {
         splash.SetActive(false);
@@ -78,8 +101,9 @@ public class LevelSelection : MonoBehaviour {
         lsBackButton.gameObject.SetActive(true);
         earth.SetActive(true);
         rvImage.SetActive(true);
-        levelOneButton.gameObject.SetActive(true);
-        levelOneButton.Select();
+
+        SetLevelButtonsActive(true);
+        levelButtons[0].Select();
     }
 	void transitionToCredits()
     {
@@ -98,11 +122,19 @@ public class LevelSelection : MonoBehaviour {
         lsBackButton.gameObject.SetActive(false);
         earth.SetActive(false);
         rvImage.SetActive(false);
-        levelOneButton.gameObject.SetActive(false);
+        SetLevelButtonsActive(false);
 
         splash.SetActive(true);
         playButton.gameObject.SetActive(true);
         creditsButton.gameObject.SetActive(true);
         playButton.Select();
+    }
+
+    public static void CompleteLevel(int levelBuildIndex) {
+        if (levelBuildIndex < levelsAvailable.Length) {
+            levelsAvailable[levelBuildIndex] = true;
+        } else {
+            // beat the last level
+        }
     }
 }

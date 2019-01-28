@@ -16,7 +16,9 @@ public class GoalCollider : MonoBehaviour {
     void OnTriggerEnter(Collider hitObj) {
 		if (hitObj.gameObject.tag == "Player") {
             levelWon = true;
-			StartCoroutine(SceneTransition.LoadScene(SceneManager.GetActiveScene().buildIndex + 1));
+            int levelBuildIndex = SceneManager.GetActiveScene().buildIndex;
+            LevelSelection.CompleteLevel(levelBuildIndex);
+			StartCoroutine(SceneTransition.LoadScene(levelBuildIndex + 1));
 		}
 	}
 
