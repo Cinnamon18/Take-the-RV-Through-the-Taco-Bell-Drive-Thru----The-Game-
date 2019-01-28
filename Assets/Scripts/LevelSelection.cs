@@ -25,7 +25,7 @@ public class LevelSelection : MonoBehaviour {
 	void Start() {
 		rvMoving = false;
 		rvSpeed = 3;
-        playButton.onClick.AddListener(delegate { transitionToLevel(1); });
+        playButton.onClick.AddListener(transitionToPlay);
         creditsButton.onClick.AddListener(transitionToCredits);
         backButton.onClick.AddListener(transitionToSplash);
         lsBackButton.onClick.AddListener(transitionToSplash);
@@ -61,7 +61,7 @@ public class LevelSelection : MonoBehaviour {
 		sceneIndex = levelNo;
 		switch (levelNo) {
 			case 1:
-				StartCoroutine(SceneTransition.LoadScene(sceneIndex));
+                target = levelOneButton.transform.position;
 				break;
 			default:
 				Debug.Log("Default");
