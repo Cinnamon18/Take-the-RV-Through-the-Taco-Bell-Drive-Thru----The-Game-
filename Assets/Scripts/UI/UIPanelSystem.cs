@@ -17,7 +17,7 @@ public class UIPanelSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetButtonDown("Start"))
         {
             if (!pausePanel.activeInHierarchy && !gameOverPanel.activeInHierarchy)
             {
