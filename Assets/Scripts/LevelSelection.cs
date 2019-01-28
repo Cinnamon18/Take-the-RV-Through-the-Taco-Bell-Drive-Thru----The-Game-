@@ -25,7 +25,7 @@ public class LevelSelection : MonoBehaviour {
 	void Start() {
 		rvMoving = false;
 		rvSpeed = 3;
-        playButton.onClick.AddListener(transitionToPlay);
+        playButton.onClick.AddListener(delegate { transitionToLevel(1); });
         creditsButton.onClick.AddListener(transitionToCredits);
         backButton.onClick.AddListener(transitionToSplash);
         lsBackButton.onClick.AddListener(transitionToSplash);
@@ -44,16 +44,6 @@ public class LevelSelection : MonoBehaviour {
 	}
 
 	void Update() {
-		if (rvMoving) {
-			float step = 400 * Time.deltaTime;
-			rv.position = Vector3.MoveTowards(rv.position, target, step);
-			if (rv.position == target && !transitioning) {
-				transitioning = true;
-				StartCoroutine(SceneTransition.LoadScene(sceneIndex));
-			}
-		} else {
-			rv.rotation = Quaternion.Euler(0f, 0f, 15 * Mathf.Sin(Time.time * rvSpeed));
-		}
 	}
 
 	void transitionToLevel(int levelNo) {
@@ -61,8 +51,8 @@ public class LevelSelection : MonoBehaviour {
 		sceneIndex = levelNo;
 		switch (levelNo) {
 			case 1:
-				target = levelOneButton.transform.position;
-				break;
+                StartCoroutine(SceneTransition.LoadScene(sceneIndex));
+                break;
 			default:
 				Debug.Log("Default");
 				break;
